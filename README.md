@@ -16,7 +16,22 @@ The Foreign Agricultural Service (FAS) is a branch of the United States Departme
 ## Timestamps
 
 - **Created:** 2024-12-25 
-- **Modified:** 2026-03-16 
+- **Modified:** 2026-04-28 
+
+## APIs
+
+### USDA FAS Open Data API
+The USDA Foreign Agricultural Service Open Data API provides programmatic access to U.S. agricultural trade data, including the Global Agricultural Trade System (GATS), Export Sales Reporting (ESR), and Production, Supply and Distribution (PSD) Online datasets.
+
+**Human URL:** [https://apps.fas.usda.gov/opendataweb/home](https://apps.fas.usda.gov/opendataweb/home)
+
+#### Tags:
+
+ - Agriculture, Trade, Federal Government, Open Data
+
+#### Properties
+
+- [Documentation](https://apps.fas.usda.gov/opendataweb/home)
 
 ## Common Properties
 
