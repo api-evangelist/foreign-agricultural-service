@@ -1,0 +1,238 @@
+openapi: 3.1.0
+info:
+  title: USDA FAS Open Data Services
+  version: "1.0"
+  description: |
+    Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural
+    Service (FAS) Open Data Services, derived from the public Swagger 2.0
+    document at https://apps.fas.usda.gov/opendata/swagger/docs/v1 and the
+    OpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.
+    The API exposes three datasets:
+      - ESR: U.S. weekly Export Sales of Agricultural Commodity Data
+      - GATS: Global Agricultural Trade System (Census and UN Trade)
+      - PSD: Production, Supply and Distribution
+    Authentication uses an `API_KEY` header issued via api.data.gov.
+  contact:
+    name: USDA Foreign Agricultural Service
+    url: https://www.fas.usda.gov/
+servers:
+  - url: https://apps.fas.usda.gov/OpenData
+    description: Production
+security:
+  - apiKey: []
+tags:
+  - name: ESR
+    description: U.S. Weekly Export Sales of Agricultural Commodity Data
+  - name: GATS
+    description: Global Agricultural Trade System
+  - name: PSD
+    description: Production, Supply and Distribution
+paths:
+  /api/esr/regions:
+    get:
+      tags: [ESR]
+      summary: List ESR regions
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/esr/countries:
+    get:
+      tags: [ESR]
+      summary: List ESR countries
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/esr/commodities:
+    get:
+      tags: [ESR]
+      summary: List ESR commodities
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/esr/unitsOfMeasure:
+    get:
+      tags: [ESR]
+      summary: List ESR units of measure
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/esr/datareleasedates:
+    get:
+      tags: [ESR]
+      summary: List ESR data release dates
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/esr/exports/commodityCode/{commodityCode}/allCountries/marketYear/{marketYear}:
+    parameters:
+      - $ref: '#/components/parameters/CommodityCode'
+      - $ref: '#/components/parameters/MarketYear'
+    get:
+      tags: [ESR]
+      summary: Get ESR exports for a commodity across all countries for a market year
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/esr/exports/commodityCode/{commodityCode}/countryCode/{countryCode}/marketYear/{marketYear}:
+    parameters:
+      - $ref: '#/components/parameters/CommodityCode'
+      - $ref: '#/components/parameters/CountryCode'
+      - $ref: '#/components/parameters/MarketYear'
+    get:
+      tags: [ESR]
+      summary: Get ESR exports for a commodity, country, and market year
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/gats/census/data/exports/dataReleaseDates:
+    get:
+      tags: [GATS]
+      summary: List GATS Census export data release dates
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/gats/census/data/imports/dataReleaseDates:
+    get:
+      tags: [GATS]
+      summary: List GATS Census import data release dates
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/gats/UNTrade/data/exports/dataReleaseDates:
+    get:
+      tags: [GATS]
+      summary: List GATS UN Trade export data release dates
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/gats/UNTrade/data/imports/dataReleaseDates:
+    get:
+      tags: [GATS]
+      summary: List GATS UN Trade import data release dates
+      responses: { '200': { $ref: '#/components/responses/Json' } }
+  /api/gats/regions:
+    get: { tags: [GATS], summary: List GATS regions, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/countries:
+    get: { tags: [GATS], summary: List GATS countries, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/commodities:
+    get: { tags: [GATS], summary: List GATS commodities, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/HS6Commodities:
+    get: { tags: [GATS], summary: List GATS HS6 commodities, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/unitsOfMeasure:
+    get: { tags: [GATS], summary: List GATS units of measure, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/customsDistricts:
+    get: { tags: [GATS], summary: List GATS customs districts, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/censusImports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+      - $ref: '#/components/parameters/PartnerCode'
+      - $ref: '#/components/parameters/Year'
+      - $ref: '#/components/parameters/Month'
+    get: { tags: [GATS], summary: Census imports by partner/year/month, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/censusExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+      - $ref: '#/components/parameters/PartnerCode'
+      - $ref: '#/components/parameters/Year'
+      - $ref: '#/components/parameters/Month'
+    get: { tags: [GATS], summary: Census exports by partner/year/month, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/censusReExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+      - $ref: '#/components/parameters/PartnerCode'
+      - $ref: '#/components/parameters/Year'
+      - $ref: '#/components/parameters/Month'
+    get: { tags: [GATS], summary: Census re-exports by partner/year/month, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/customsDistrictExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+      - $ref: '#/components/parameters/PartnerCode'
+      - $ref: '#/components/parameters/Year'
+      - $ref: '#/components/parameters/Month'
+    get: { tags: [GATS], summary: Customs district exports by partner/year/month, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/customsDistrictImports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+      - $ref: '#/components/parameters/PartnerCode'
+      - $ref: '#/components/parameters/Year'
+      - $ref: '#/components/parameters/Month'
+    get: { tags: [GATS], summary: Customs district imports by partner/year/month, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/customsDistrictReExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+      - $ref: '#/components/parameters/PartnerCode'
+      - $ref: '#/components/parameters/Year'
+      - $ref: '#/components/parameters/Month'
+    get: { tags: [GATS], summary: Customs district re-exports by partner/year/month, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/UNTradeImports/reporterCode/{reporterCode}/year/{year}:
+    parameters:
+      - $ref: '#/components/parameters/ReporterCode'
+      - $ref: '#/components/parameters/Year'
+    get: { tags: [GATS], summary: UN Trade imports by reporter/year, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/UNTradeExports/reporterCode/{reporterCode}/year/{year}:
+    parameters:
+      - $ref: '#/components/parameters/ReporterCode'
+      - $ref: '#/components/parameters/Year'
+    get: { tags: [GATS], summary: UN Trade exports by reporter/year, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/gats/UNTradeReExports/reporterCode/{reporterCode}/year/{year}:
+    parameters:
+      - $ref: '#/components/parameters/ReporterCode'
+      - $ref: '#/components/parameters/Year'
+    get: { tags: [GATS], summary: UN Trade re-exports by reporter/year, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/psd/commodity/{commodityCode}/dataReleaseDates:
+    parameters:
+      - $ref: '#/components/parameters/CommodityCode'
+    get: { tags: [PSD], summary: PSD data release dates for a commodity, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/psd/commodity/{commodityCode}/country/all/year/{marketYear}:
+    parameters:
+      - $ref: '#/components/parameters/CommodityCode'
+      - $ref: '#/components/parameters/MarketYear'
+    get: { tags: [PSD], summary: PSD for a commodity across all countries for a market year, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/psd/commodity/{commodityCode}/country/{countryCode}/year/{marketYear}:
+    parameters:
+      - $ref: '#/components/parameters/CommodityCode'
+      - $ref: '#/components/parameters/CountryCode'
+      - $ref: '#/components/parameters/MarketYear'
+    get: { tags: [PSD], summary: PSD for a commodity, country, and market year, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/psd/commodity/{commodityCode}/world/year/{marketYear}:
+    parameters:
+      - $ref: '#/components/parameters/CommodityCode'
+      - $ref: '#/components/parameters/MarketYear'
+    get: { tags: [PSD], summary: PSD world aggregate for a commodity and market year, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/psd/regions:
+    get: { tags: [PSD], summary: List PSD regions, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/psd/countries:
+    get: { tags: [PSD], summary: List PSD countries, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/psd/commodities:
+    get: { tags: [PSD], summary: List PSD commodities, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/psd/unitsOfMeasure:
+    get: { tags: [PSD], summary: List PSD units of measure, responses: { '200': { $ref: '#/components/responses/Json' } } }
+  /api/psd/commodityAttributes:
+    get: { tags: [PSD], summary: List PSD commodity attributes, responses: { '200': { $ref: '#/components/responses/Json' } } }
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: API_KEY
+      description: API key issued via api.data.gov for the FAS Open Data Services
+  parameters:
+    CommodityCode:
+      name: commodityCode
+      in: path
+      required: true
+      schema: { type: string }
+    CountryCode:
+      name: countryCode
+      in: path
+      required: true
+      schema: { type: string }
+    MarketYear:
+      name: marketYear
+      in: path
+      required: true
+      schema: { type: integer }
+    PartnerCode:
+      name: partnerCode
+      in: path
+      required: true
+      schema: { type: string }
+    ReporterCode:
+      name: reporterCode
+      in: path
+      required: true
+      schema: { type: string }
+    Year:
+      name: year
+      in: path
+      required: true
+      schema: { type: integer }
+    Month:
+      name: month
+      in: path
+      required: true
+      schema: { type: integer, minimum: 1, maximum: 12 }
+  responses:
+    Json:
+      description: JSON response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              additionalProperties: true
