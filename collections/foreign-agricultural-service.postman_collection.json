@@ -1,0 +1,3558 @@
+{
+  "item": [
+    {
+      "id": "ec5e9567-b013-4681-ade7-93245ca90577",
+      "name": "ESR",
+      "description": {
+        "content": "U.S. Weekly Export Sales of Agricultural Commodity Data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6d10a96-3098-4b0a-85c7-e9d377626a36",
+          "name": "List ESR regions",
+          "request": {
+            "name": "List ESR regions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dcb08475-3397-47a2-9c3f-9cbc4291ca55",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "985634f8-418d-4d4d-a583-edc722c7c322",
+          "name": "List ESR countries",
+          "request": {
+            "name": "List ESR countries",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "countries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "34177b88-3ba8-4b2b-824e-1f656a45a29f",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "countries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "366ffcdc-e6f1-45ed-89b3-444f23fde673",
+          "name": "List ESR commodities",
+          "request": {
+            "name": "List ESR commodities",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "commodities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67a7b887-72d7-4342-851d-3045fb5bb5a0",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "commodities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fbf6ecb4-34d5-4c6b-a6af-5ceee9b03c8a",
+          "name": "List ESR units of measure",
+          "request": {
+            "name": "List ESR units of measure",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "unitsOfMeasure"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d41a0736-1fb1-42ca-8fc6-5d6938c56eea",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "unitsOfMeasure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "379f5661-3a69-4a31-88c2-4ce3252d7855",
+          "name": "List ESR data release dates",
+          "request": {
+            "name": "List ESR data release dates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "datareleasedates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b90200a0-4bc0-4a8c-a428-0ea0a7646eaa",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "datareleasedates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2423318-4347-4924-9b5d-5846c23d8cd7",
+          "name": "Get ESR exports for a commodity across all countries for a market year",
+          "request": {
+            "name": "Get ESR exports for a commodity across all countries for a market year",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "exports",
+                "commodityCode",
+                ":commodityCode",
+                "allCountries",
+                "marketYear",
+                ":marketYear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commodityCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "marketYear",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab3259fe-804a-4ba6-bc65-02422fb34d26",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "exports",
+                    "commodityCode",
+                    ":commodityCode",
+                    "allCountries",
+                    "marketYear",
+                    ":marketYear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commodityCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "marketYear",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7381eed8-b282-4a73-9694-e0a8242ec4cc",
+          "name": "Get ESR exports for a commodity, country, and market year",
+          "request": {
+            "name": "Get ESR exports for a commodity, country, and market year",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "exports",
+                "commodityCode",
+                ":commodityCode",
+                "countryCode",
+                ":countryCode",
+                "marketYear",
+                ":marketYear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commodityCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "countryCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "marketYear",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c88e0de-d85b-44a4-b48a-baebfd25088a",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "exports",
+                    "commodityCode",
+                    ":commodityCode",
+                    "countryCode",
+                    ":countryCode",
+                    "marketYear",
+                    ":marketYear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commodityCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "countryCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "marketYear",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "93e372a7-5906-421c-aca8-9876418331df",
+      "name": "GATS",
+      "description": {
+        "content": "Global Agricultural Trade System",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "82aa8f8e-bb66-4c2a-9436-08ae66c7fec1",
+          "name": "List GATS Census export data release dates",
+          "request": {
+            "name": "List GATS Census export data release dates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "census",
+                "data",
+                "exports",
+                "dataReleaseDates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a55f47d-bd48-4949-bb0b-b3615e84d62e",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "census",
+                    "data",
+                    "exports",
+                    "dataReleaseDates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b854da1-41ec-487f-b06d-48dc449ae355",
+          "name": "List GATS Census import data release dates",
+          "request": {
+            "name": "List GATS Census import data release dates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "census",
+                "data",
+                "imports",
+                "dataReleaseDates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53b5ee31-430b-4707-9f7d-44fd29c5bfba",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "census",
+                    "data",
+                    "imports",
+                    "dataReleaseDates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e5d767e-2e82-45e9-a1f0-930ad76743a1",
+          "name": "List GATS UN Trade export data release dates",
+          "request": {
+            "name": "List GATS UN Trade export data release dates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "UNTrade",
+                "data",
+                "exports",
+                "dataReleaseDates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b935716-b722-49d0-989b-35b15207349c",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "UNTrade",
+                    "data",
+                    "exports",
+                    "dataReleaseDates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df693cc9-691b-4ccd-899a-8f6759840411",
+          "name": "List GATS UN Trade import data release dates",
+          "request": {
+            "name": "List GATS UN Trade import data release dates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "UNTrade",
+                "data",
+                "imports",
+                "dataReleaseDates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1faee8b-92d1-4c25-8711-4f0a4f2b8204",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "UNTrade",
+                    "data",
+                    "imports",
+                    "dataReleaseDates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e4ac47f-2a08-4f7d-b4d4-ee98570c31b7",
+          "name": "List GATS regions",
+          "request": {
+            "name": "List GATS regions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89f08647-7ff2-42af-a73c-6fe4a1e53120",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3317e797-3146-488f-9ec9-5979d0c809bc",
+          "name": "List GATS countries",
+          "request": {
+            "name": "List GATS countries",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "countries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1f2620b-01c5-4816-9021-08434795cfff",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "countries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a1d0ce8-cae6-4f97-b7ff-9aa6adb59600",
+          "name": "List GATS commodities",
+          "request": {
+            "name": "List GATS commodities",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "commodities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "193a7539-cf9a-4472-b952-7259afeb5c58",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "commodities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6630714-d554-410a-87c7-4cdcb2b8be22",
+          "name": "List GATS HS6 commodities",
+          "request": {
+            "name": "List GATS HS6 commodities",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "HS6Commodities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ef05491-ded1-42a9-82c7-524b5e7a9ddb",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "HS6Commodities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e254fecc-f4fb-4f7a-937c-353a7abf0056",
+          "name": "List GATS units of measure",
+          "request": {
+            "name": "List GATS units of measure",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "unitsOfMeasure"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b930893d-c5b3-4ee5-bb73-2433f8f3a45d",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "unitsOfMeasure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5d5a593-95bb-4db0-b94e-68aa05591c50",
+          "name": "List GATS customs districts",
+          "request": {
+            "name": "List GATS customs districts",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "customsDistricts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "184fc5c1-ee59-4cb0-ae15-dbf2a110320c",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "customsDistricts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a8f5bd0-37d9-49b7-82e1-29faf5d863d6",
+          "name": "Census imports by partner/year/month",
+          "request": {
+            "name": "Census imports by partner/year/month",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "censusImports",
+                "partnerCode",
+                ":partnerCode",
+                "year",
+                ":year",
+                "month",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partnerCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dce6a351-dc87-49b5-8d07-3686070fa0e0",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "censusImports",
+                    "partnerCode",
+                    ":partnerCode",
+                    "year",
+                    ":year",
+                    "month",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partnerCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d72e870-78eb-4f90-9423-48c89248856a",
+          "name": "Census exports by partner/year/month",
+          "request": {
+            "name": "Census exports by partner/year/month",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "censusExports",
+                "partnerCode",
+                ":partnerCode",
+                "year",
+                ":year",
+                "month",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partnerCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03fcf399-d405-46b1-a0fc-aa9b5972c478",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "censusExports",
+                    "partnerCode",
+                    ":partnerCode",
+                    "year",
+                    ":year",
+                    "month",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partnerCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19a4e3e1-f500-486c-8426-948a359d1566",
+          "name": "Census re-exports by partner/year/month",
+          "request": {
+            "name": "Census re-exports by partner/year/month",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "censusReExports",
+                "partnerCode",
+                ":partnerCode",
+                "year",
+                ":year",
+                "month",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partnerCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5a21880-4940-41a2-9b16-82bfa23ec7e6",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "censusReExports",
+                    "partnerCode",
+                    ":partnerCode",
+                    "year",
+                    ":year",
+                    "month",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partnerCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85334260-cc03-4c9b-8d6d-9053735d5194",
+          "name": "Customs district exports by partner/year/month",
+          "request": {
+            "name": "Customs district exports by partner/year/month",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "customsDistrictExports",
+                "partnerCode",
+                ":partnerCode",
+                "year",
+                ":year",
+                "month",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partnerCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3639521-fd68-4ebc-949f-0ddf261ba68e",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "customsDistrictExports",
+                    "partnerCode",
+                    ":partnerCode",
+                    "year",
+                    ":year",
+                    "month",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partnerCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c71b3627-694a-4384-9347-a174bc1fe43a",
+          "name": "Customs district imports by partner/year/month",
+          "request": {
+            "name": "Customs district imports by partner/year/month",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "customsDistrictImports",
+                "partnerCode",
+                ":partnerCode",
+                "year",
+                ":year",
+                "month",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partnerCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bcfe819-c033-44e2-80b7-1b13489a0b4b",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "customsDistrictImports",
+                    "partnerCode",
+                    ":partnerCode",
+                    "year",
+                    ":year",
+                    "month",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partnerCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cda952a4-13d2-46d7-9b8a-b66b23654b73",
+          "name": "Customs district re-exports by partner/year/month",
+          "request": {
+            "name": "Customs district re-exports by partner/year/month",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "customsDistrictReExports",
+                "partnerCode",
+                ":partnerCode",
+                "year",
+                ":year",
+                "month",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partnerCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87e2cdd5-5377-4be3-9ec6-f02ed30085f4",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "customsDistrictReExports",
+                    "partnerCode",
+                    ":partnerCode",
+                    "year",
+                    ":year",
+                    "month",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "partnerCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed172e8a-d815-465a-a108-82a96ab54b60",
+          "name": "UN Trade imports by reporter/year",
+          "request": {
+            "name": "UN Trade imports by reporter/year",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "UNTradeImports",
+                "reporterCode",
+                ":reporterCode",
+                "year",
+                ":year"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reporterCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bcb51225-f6f9-4a43-a771-2a328a062098",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "UNTradeImports",
+                    "reporterCode",
+                    ":reporterCode",
+                    "year",
+                    ":year"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reporterCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09a202a4-5e05-4420-96e2-707edf11cd7d",
+          "name": "UN Trade exports by reporter/year",
+          "request": {
+            "name": "UN Trade exports by reporter/year",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "UNTradeExports",
+                "reporterCode",
+                ":reporterCode",
+                "year",
+                ":year"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reporterCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "522b131c-845b-49ec-9651-e499573540e7",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "UNTradeExports",
+                    "reporterCode",
+                    ":reporterCode",
+                    "year",
+                    ":year"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reporterCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7328af2d-a7dd-4768-b795-69bf9a22f0bc",
+          "name": "UN Trade re-exports by reporter/year",
+          "request": {
+            "name": "UN Trade re-exports by reporter/year",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "gats",
+                "UNTradeReExports",
+                "reporterCode",
+                ":reporterCode",
+                "year",
+                ":year"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reporterCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "240f7edb-54c8-484b-81a1-0e287771b161",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "gats",
+                    "UNTradeReExports",
+                    "reporterCode",
+                    ":reporterCode",
+                    "year",
+                    ":year"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reporterCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cc2cf644-5cfc-4aa0-a2da-4005816d047d",
+      "name": "PSD",
+      "description": {
+        "content": "Production, Supply and Distribution",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7efa576-8dc2-4b94-b8fe-21a6b3a9e9d1",
+          "name": "PSD data release dates for a commodity",
+          "request": {
+            "name": "PSD data release dates for a commodity",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "psd",
+                "commodity",
+                ":commodityCode",
+                "dataReleaseDates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commodityCode",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8689666-9c14-4f83-b49e-246ce579c41b",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "psd",
+                    "commodity",
+                    ":commodityCode",
+                    "dataReleaseDates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commodityCode",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": true,\n    \"key_1\": 4021,\n    \"key_2\": 354,\n    \"key_3\": true\n  },\n  {\n    \"key_0\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f7f5044-fbe0-4764-a769-8fb609288206",
+          "name": "PSD for a commodity across all countries for a market year",
+          "request": {
+            "name": "PSD for a commodity across all countries for a market year",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "psd",
+                "commodity",
+                ":commodityCode",
+                "country",
+                "all",
+                "year",
+                ":marketYear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commodityCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "marketYear",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd9fe10a-f902-43cd-b5f1-08a0442dbec2",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "psd",
+                    "commodity",
+                    ":commodityCode",
+                    "country",
+                    "all",
+                    "year",
+                    ":marketYear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commodityCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "marketYear",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d603c9a-0444-4429-a4c2-9ea2d7391d77",
+          "name": "PSD for a commodity",
+          "request": {
+            "name": "PSD for a commodity",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "psd",
+                "commodity",
+                ":commodityCode",
+                "country",
+                ":countryCode",
+                "year",
+                ":marketYear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commodityCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "countryCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "marketYear",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8161e16f-7dfc-4c9e-af85-3ec1f85e1002",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "psd",
+                    "commodity",
+                    ":commodityCode",
+                    "country",
+                    ":countryCode",
+                    "year",
+                    ":marketYear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commodityCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "countryCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "marketYear",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68321b0c-1128-48d5-9f64-a518dbfee6be",
+          "name": "PSD world aggregate for a commodity and market year",
+          "request": {
+            "name": "PSD world aggregate for a commodity and market year",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "psd",
+                "commodity",
+                ":commodityCode",
+                "world",
+                "year",
+                ":marketYear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commodityCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "marketYear",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62e31797-3616-4333-9c96-e4e49db1679e",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "psd",
+                    "commodity",
+                    ":commodityCode",
+                    "world",
+                    "year",
+                    ":marketYear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commodityCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "marketYear",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a941a8b7-5287-4979-8b7d-536afa4ee3d6",
+          "name": "List PSD regions",
+          "request": {
+            "name": "List PSD regions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "psd",
+                "regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56fd99cb-c163-4283-951c-aad2a8c9f8e8",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "psd",
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c73d41b-cf7d-40fa-84bd-6416e25013e9",
+          "name": "List PSD countries",
+          "request": {
+            "name": "List PSD countries",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "psd",
+                "countries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8abfca81-ea3a-4e9c-81b6-706f0a4651c6",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "psd",
+                    "countries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b67a16ec-d58f-42fb-a28d-41af180c3398",
+          "name": "List PSD commodities",
+          "request": {
+            "name": "List PSD commodities",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "psd",
+                "commodities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "251b228c-f335-4ded-8152-4bae2e466649",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "psd",
+                    "commodities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62c57408-441c-4384-9a2a-de43d1b626d2",
+          "name": "List PSD units of measure",
+          "request": {
+            "name": "List PSD units of measure",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "psd",
+                "unitsOfMeasure"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e22e0754-c30b-4a1b-adb2-a591f93e4400",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "psd",
+                    "unitsOfMeasure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03abb342-2ff0-4db1-917d-5f3cd634c2ed",
+          "name": "List PSD commodity attributes",
+          "request": {
+            "name": "List PSD commodity attributes",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "psd",
+                "commodityAttributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78883f53-f237-4036-919b-ad5191b20bf7",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "psd",
+                    "commodityAttributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 6459,\n    \"key_1\": \"string\"\n  },\n  {\n    \"key_0\": 4155.909179339711,\n    \"key_1\": 405,\n    \"key_2\": \"string\",\n    \"key_3\": 4760,\n    \"key_4\": 1801.6135685008483\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apps.fas.usda.gov/OpenData",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "API_KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "20cf2f98-62ff-4bb0-bba8-1df2bca6c8e6",
+    "name": "USDA FAS Open Data Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural\nService (FAS) Open Data Services, derived from the public Swagger 2.0\ndocument at https://apps.fas.usda.gov/opendata/swagger/docs/v1 and the\nOpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.\nThe API exposes three datasets:\n  - ESR: U.S. weekly Export Sales of Agricultural Commodity Data\n  - GATS: Global Agricultural Trade System (Census and UN Trade)\n  - PSD: Production, Supply and Distribution\nAuthentication uses an `API_KEY` header issued via api.data.gov.\n\n\nContact Support:\n Name: USDA Foreign Agricultural Service",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,642 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "USDA FAS Open Data Services",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API_KEY",
+      "value": "{{API_KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ESR",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ESR regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/regions"
+          },
+          "docs": "List ESR regions"
+        },
+        {
+          "info": {
+            "name": "List ESR countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/countries"
+          },
+          "docs": "List ESR countries"
+        },
+        {
+          "info": {
+            "name": "List ESR commodities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/commodities"
+          },
+          "docs": "List ESR commodities"
+        },
+        {
+          "info": {
+            "name": "List ESR units of measure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/unitsOfMeasure"
+          },
+          "docs": "List ESR units of measure"
+        },
+        {
+          "info": {
+            "name": "List ESR data release dates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/datareleasedates"
+          },
+          "docs": "List ESR data release dates"
+        },
+        {
+          "info": {
+            "name": "Get ESR exports for a commodity across all countries for a market year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/exports/commodityCode/:commodityCode/allCountries/marketYear/:marketYear",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "marketYear",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get ESR exports for a commodity across all countries for a market year"
+        },
+        {
+          "info": {
+            "name": "Get ESR exports for a commodity, country, and market year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/exports/commodityCode/:commodityCode/countryCode/:countryCode/marketYear/:marketYear",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "marketYear",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get ESR exports for a commodity, country, and market year"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GATS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List GATS Census export data release dates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/census/data/exports/dataReleaseDates"
+          },
+          "docs": "List GATS Census export data release dates"
+        },
+        {
+          "info": {
+            "name": "List GATS Census import data release dates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/census/data/imports/dataReleaseDates"
+          },
+          "docs": "List GATS Census import data release dates"
+        },
+        {
+          "info": {
+            "name": "List GATS UN Trade export data release dates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/UNTrade/data/exports/dataReleaseDates"
+          },
+          "docs": "List GATS UN Trade export data release dates"
+        },
+        {
+          "info": {
+            "name": "List GATS UN Trade import data release dates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/UNTrade/data/imports/dataReleaseDates"
+          },
+          "docs": "List GATS UN Trade import data release dates"
+        },
+        {
+          "info": {
+            "name": "List GATS regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/regions"
+          },
+          "docs": "List GATS regions"
+        },
+        {
+          "info": {
+            "name": "List GATS countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/countries"
+          },
+          "docs": "List GATS countries"
+        },
+        {
+          "info": {
+            "name": "List GATS commodities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/commodities"
+          },
+          "docs": "List GATS commodities"
+        },
+        {
+          "info": {
+            "name": "List GATS HS6 commodities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/HS6Commodities"
+          },
+          "docs": "List GATS HS6 commodities"
+        },
+        {
+          "info": {
+            "name": "List GATS units of measure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/unitsOfMeasure"
+          },
+          "docs": "List GATS units of measure"
+        },
+        {
+          "info": {
+            "name": "List GATS customs districts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/customsDistricts"
+          },
+          "docs": "List GATS customs districts"
+        },
+        {
+          "info": {
+            "name": "Census imports by partner/year/month",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/censusImports/partnerCode/:partnerCode/year/:year/month/:month",
+            "params": [
+              {
+                "name": "partnerCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Census imports by partner/year/month"
+        },
+        {
+          "info": {
+            "name": "Census exports by partner/year/month",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/censusExports/partnerCode/:partnerCode/year/:year/month/:month",
+            "params": [
+              {
+                "name": "partnerCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Census exports by partner/year/month"
+        },
+        {
+          "info": {
+            "name": "Census re-exports by partner/year/month",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/censusReExports/partnerCode/:partnerCode/year/:year/month/:month",
+            "params": [
+              {
+                "name": "partnerCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Census re-exports by partner/year/month"
+        },
+        {
+          "info": {
+            "name": "Customs district exports by partner/year/month",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/customsDistrictExports/partnerCode/:partnerCode/year/:year/month/:month",
+            "params": [
+              {
+                "name": "partnerCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Customs district exports by partner/year/month"
+        },
+        {
+          "info": {
+            "name": "Customs district imports by partner/year/month",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/customsDistrictImports/partnerCode/:partnerCode/year/:year/month/:month",
+            "params": [
+              {
+                "name": "partnerCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Customs district imports by partner/year/month"
+        },
+        {
+          "info": {
+            "name": "Customs district re-exports by partner/year/month",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/customsDistrictReExports/partnerCode/:partnerCode/year/:year/month/:month",
+            "params": [
+              {
+                "name": "partnerCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Customs district re-exports by partner/year/month"
+        },
+        {
+          "info": {
+            "name": "UN Trade imports by reporter/year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/UNTradeImports/reporterCode/:reporterCode/year/:year",
+            "params": [
+              {
+                "name": "reporterCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "UN Trade imports by reporter/year"
+        },
+        {
+          "info": {
+            "name": "UN Trade exports by reporter/year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/UNTradeExports/reporterCode/:reporterCode/year/:year",
+            "params": [
+              {
+                "name": "reporterCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "UN Trade exports by reporter/year"
+        },
+        {
+          "info": {
+            "name": "UN Trade re-exports by reporter/year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/gats/UNTradeReExports/reporterCode/:reporterCode/year/:year",
+            "params": [
+              {
+                "name": "reporterCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "UN Trade re-exports by reporter/year"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "PSD",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PSD data release dates for a commodity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodity/:commodityCode/dataReleaseDates",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PSD data release dates for a commodity"
+        },
+        {
+          "info": {
+            "name": "PSD for a commodity across all countries for a market year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodity/:commodityCode/country/all/year/:marketYear",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "marketYear",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PSD for a commodity across all countries for a market year"
+        },
+        {
+          "info": {
+            "name": "PSD for a commodity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodity/:commodityCode/country/:countryCode/year/:marketYear",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "marketYear",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PSD for a commodity"
+        },
+        {
+          "info": {
+            "name": "PSD world aggregate for a commodity and market year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodity/:commodityCode/world/year/:marketYear",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "marketYear",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PSD world aggregate for a commodity and market year"
+        },
+        {
+          "info": {
+            "name": "List PSD regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/regions"
+          },
+          "docs": "List PSD regions"
+        },
+        {
+          "info": {
+            "name": "List PSD countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/countries"
+          },
+          "docs": "List PSD countries"
+        },
+        {
+          "info": {
+            "name": "List PSD commodities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodities"
+          },
+          "docs": "List PSD commodities"
+        },
+        {
+          "info": {
+            "name": "List PSD units of measure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/unitsOfMeasure"
+          },
+          "docs": "List PSD units of measure"
+        },
+        {
+          "info": {
+            "name": "List PSD commodity attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodityAttributes"
+          },
+          "docs": "List PSD commodity attributes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
