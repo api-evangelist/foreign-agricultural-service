@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/foreign-agricultural-service-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: API_KEY
+  description: API key issued via api.data.gov for the FAS Open Data Services
+  sources:
+  - openapi/foreign-agricultural-service-openapi.yml

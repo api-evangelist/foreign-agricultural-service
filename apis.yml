@@ -34,6 +34,10 @@ apis:
       Trade System (GATS), Export Sales Reporting (ESR), and Production, Supply
       and Distribution (PSD) Online datasets.
 common:
+  - type: DomainSecurity
+    url: security/foreign-agricultural-service-domain-security.yml
+  - type: Authentication
+    url: authentication/foreign-agricultural-service-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/usda-foreign-agricultural-service
   - type: Website
