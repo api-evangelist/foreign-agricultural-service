@@ -34,6 +34,8 @@ apis:
       Trade System (GATS), Export Sales Reporting (ESR), and Production, Supply
       and Distribution (PSD) Online datasets.
 common:
+  - type: AgenticAccess
+    url: agentic-access/foreign-agricultural-service-agentic-access.yml
   - type: DomainSecurity
     url: security/foreign-agricultural-service-domain-security.yml
   - type: Authentication
