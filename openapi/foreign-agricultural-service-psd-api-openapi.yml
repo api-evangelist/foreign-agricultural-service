@@ -1,0 +1,139 @@
+openapi: 3.1.0
+info:
+  title: USDA FAS Open Data Services ESR PSD API
+  version: '1.0'
+  description: "Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural\nService (FAS) Open Data Services, derived from the public Swagger 2.0\ndocument at https://apps.fas.usda.gov/opendata/swagger/docs/v1 and the\nOpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.\nThe API exposes three datasets:\n  - ESR: U.S. weekly Export Sales of Agricultural Commodity Data\n  - GATS: Global Agricultural Trade System (Census and UN Trade)\n  - PSD: Production, Supply and Distribution\nAuthentication uses an `API_KEY` header issued via api.data.gov.\n"
+  contact:
+    name: USDA Foreign Agricultural Service
+    url: https://www.fas.usda.gov/
+servers:
+- url: https://apps.fas.usda.gov/OpenData
+  description: Production
+security:
+- apiKey: []
+tags:
+- name: PSD
+  description: Production, Supply and Distribution
+paths:
+  /api/psd/commodity/{commodityCode}/dataReleaseDates:
+    parameters:
+    - $ref: '#/components/parameters/CommodityCode'
+    get:
+      tags:
+      - PSD
+      summary: PSD data release dates for a commodity
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/psd/commodity/{commodityCode}/country/all/year/{marketYear}:
+    parameters:
+    - $ref: '#/components/parameters/CommodityCode'
+    - $ref: '#/components/parameters/MarketYear'
+    get:
+      tags:
+      - PSD
+      summary: PSD for a commodity across all countries for a market year
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/psd/commodity/{commodityCode}/country/{countryCode}/year/{marketYear}:
+    parameters:
+    - $ref: '#/components/parameters/CommodityCode'
+    - $ref: '#/components/parameters/CountryCode'
+    - $ref: '#/components/parameters/MarketYear'
+    get:
+      tags:
+      - PSD
+      summary: PSD for a commodity
+      country: null
+      and market year: null
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/psd/commodity/{commodityCode}/world/year/{marketYear}:
+    parameters:
+    - $ref: '#/components/parameters/CommodityCode'
+    - $ref: '#/components/parameters/MarketYear'
+    get:
+      tags:
+      - PSD
+      summary: PSD world aggregate for a commodity and market year
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/psd/regions:
+    get:
+      tags:
+      - PSD
+      summary: List PSD regions
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/psd/countries:
+    get:
+      tags:
+      - PSD
+      summary: List PSD countries
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/psd/commodities:
+    get:
+      tags:
+      - PSD
+      summary: List PSD commodities
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/psd/unitsOfMeasure:
+    get:
+      tags:
+      - PSD
+      summary: List PSD units of measure
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/psd/commodityAttributes:
+    get:
+      tags:
+      - PSD
+      summary: List PSD commodity attributes
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+components:
+  responses:
+    Json:
+      description: JSON response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              additionalProperties: true
+  parameters:
+    CountryCode:
+      name: countryCode
+      in: path
+      required: true
+      schema:
+        type: string
+    MarketYear:
+      name: marketYear
+      in: path
+      required: true
+      schema:
+        type: integer
+    CommodityCode:
+      name: commodityCode
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: API_KEY
+      description: API key issued via api.data.gov for the FAS Open Data Services

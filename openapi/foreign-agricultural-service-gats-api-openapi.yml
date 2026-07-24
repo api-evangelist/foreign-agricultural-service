@@ -1,0 +1,246 @@
+openapi: 3.1.0
+info:
+  title: USDA FAS Open Data Services ESR GATS API
+  version: '1.0'
+  description: "Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural\nService (FAS) Open Data Services, derived from the public Swagger 2.0\ndocument at https://apps.fas.usda.gov/opendata/swagger/docs/v1 and the\nOpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.\nThe API exposes three datasets:\n  - ESR: U.S. weekly Export Sales of Agricultural Commodity Data\n  - GATS: Global Agricultural Trade System (Census and UN Trade)\n  - PSD: Production, Supply and Distribution\nAuthentication uses an `API_KEY` header issued via api.data.gov.\n"
+  contact:
+    name: USDA Foreign Agricultural Service
+    url: https://www.fas.usda.gov/
+servers:
+- url: https://apps.fas.usda.gov/OpenData
+  description: Production
+security:
+- apiKey: []
+tags:
+- name: GATS
+  description: Global Agricultural Trade System
+paths:
+  /api/gats/census/data/exports/dataReleaseDates:
+    get:
+      tags:
+      - GATS
+      summary: List GATS Census export data release dates
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/census/data/imports/dataReleaseDates:
+    get:
+      tags:
+      - GATS
+      summary: List GATS Census import data release dates
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/UNTrade/data/exports/dataReleaseDates:
+    get:
+      tags:
+      - GATS
+      summary: List GATS UN Trade export data release dates
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/UNTrade/data/imports/dataReleaseDates:
+    get:
+      tags:
+      - GATS
+      summary: List GATS UN Trade import data release dates
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/regions:
+    get:
+      tags:
+      - GATS
+      summary: List GATS regions
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/countries:
+    get:
+      tags:
+      - GATS
+      summary: List GATS countries
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/commodities:
+    get:
+      tags:
+      - GATS
+      summary: List GATS commodities
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/HS6Commodities:
+    get:
+      tags:
+      - GATS
+      summary: List GATS HS6 commodities
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/unitsOfMeasure:
+    get:
+      tags:
+      - GATS
+      summary: List GATS units of measure
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/customsDistricts:
+    get:
+      tags:
+      - GATS
+      summary: List GATS customs districts
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/censusImports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+    - $ref: '#/components/parameters/PartnerCode'
+    - $ref: '#/components/parameters/Year'
+    - $ref: '#/components/parameters/Month'
+    get:
+      tags:
+      - GATS
+      summary: Census imports by partner/year/month
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/censusExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+    - $ref: '#/components/parameters/PartnerCode'
+    - $ref: '#/components/parameters/Year'
+    - $ref: '#/components/parameters/Month'
+    get:
+      tags:
+      - GATS
+      summary: Census exports by partner/year/month
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/censusReExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+    - $ref: '#/components/parameters/PartnerCode'
+    - $ref: '#/components/parameters/Year'
+    - $ref: '#/components/parameters/Month'
+    get:
+      tags:
+      - GATS
+      summary: Census re-exports by partner/year/month
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/customsDistrictExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+    - $ref: '#/components/parameters/PartnerCode'
+    - $ref: '#/components/parameters/Year'
+    - $ref: '#/components/parameters/Month'
+    get:
+      tags:
+      - GATS
+      summary: Customs district exports by partner/year/month
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/customsDistrictImports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+    - $ref: '#/components/parameters/PartnerCode'
+    - $ref: '#/components/parameters/Year'
+    - $ref: '#/components/parameters/Month'
+    get:
+      tags:
+      - GATS
+      summary: Customs district imports by partner/year/month
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/customsDistrictReExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    parameters:
+    - $ref: '#/components/parameters/PartnerCode'
+    - $ref: '#/components/parameters/Year'
+    - $ref: '#/components/parameters/Month'
+    get:
+      tags:
+      - GATS
+      summary: Customs district re-exports by partner/year/month
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/UNTradeImports/reporterCode/{reporterCode}/year/{year}:
+    parameters:
+    - $ref: '#/components/parameters/ReporterCode'
+    - $ref: '#/components/parameters/Year'
+    get:
+      tags:
+      - GATS
+      summary: UN Trade imports by reporter/year
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/UNTradeExports/reporterCode/{reporterCode}/year/{year}:
+    parameters:
+    - $ref: '#/components/parameters/ReporterCode'
+    - $ref: '#/components/parameters/Year'
+    get:
+      tags:
+      - GATS
+      summary: UN Trade exports by reporter/year
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+  /api/gats/UNTradeReExports/reporterCode/{reporterCode}/year/{year}:
+    parameters:
+    - $ref: '#/components/parameters/ReporterCode'
+    - $ref: '#/components/parameters/Year'
+    get:
+      tags:
+      - GATS
+      summary: UN Trade re-exports by reporter/year
+      responses:
+        '200':
+          $ref: '#/components/responses/Json'
+components:
+  responses:
+    Json:
+      description: JSON response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              additionalProperties: true
+  parameters:
+    ReporterCode:
+      name: reporterCode
+      in: path
+      required: true
+      schema:
+        type: string
+    Month:
+      name: month
+      in: path
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 12
+    Year:
+      name: year
+      in: path
+      required: true
+      schema:
+        type: integer
+    PartnerCode:
+      name: partnerCode
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: API_KEY
+      description: API key issued via api.data.gov for the FAS Open Data Services
