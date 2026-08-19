@@ -1,0 +1,698 @@
+{
+  "item": [
+    {
+      "id": "750124db-a096-4d0b-877a-699e824be1de",
+      "name": "ESR",
+      "description": {
+        "content": "U.S. Weekly Export Sales of Agricultural Commodity Data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "80325a23-b06f-4c73-8437-9a40093f2524",
+          "name": "List ESR regions",
+          "request": {
+            "name": "List ESR regions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca3da12a-6cf5-4a2a-9851-3b7cb5ad734a",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 9980,\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  {\n    \"key_0\": false,\n    \"key_1\": 8280,\n    \"key_2\": true,\n    \"key_3\": true,\n    \"key_4\": 5480\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41f9a03a-f3ab-4136-b0a0-9164eb69acbd",
+          "name": "List ESR countries",
+          "request": {
+            "name": "List ESR countries",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "countries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0abed994-b2d8-4c2e-b7d9-403c0aa0b3b9",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "countries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 4467.920568355766,\n    \"key_1\": 863.2163210734578\n  },\n  {\n    \"key_0\": false,\n    \"key_1\": 287\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e27ec64-9150-45e3-8df5-14b611f8d4f2",
+          "name": "List ESR commodities",
+          "request": {
+            "name": "List ESR commodities",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "commodities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c4db92a-93dd-4da4-ad43-9858a87e201b",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "commodities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 4467.920568355766,\n    \"key_1\": 863.2163210734578\n  },\n  {\n    \"key_0\": false,\n    \"key_1\": 287\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15ef2cf8-b4fb-4b91-baef-5f9b3f1f23c2",
+          "name": "List ESR units of measure",
+          "request": {
+            "name": "List ESR units of measure",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "unitsOfMeasure"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb8780d8-38d1-4c11-9178-7039828e3a82",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "unitsOfMeasure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 4467.920568355766,\n    \"key_1\": 863.2163210734578\n  },\n  {\n    \"key_0\": false,\n    \"key_1\": 287\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d380d3e9-cf31-46f1-8771-74b8ddf92c12",
+          "name": "List ESR data release dates",
+          "request": {
+            "name": "List ESR data release dates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "datareleasedates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21d79fde-0a3d-4f8c-8672-bc46b6fc22ef",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "datareleasedates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 4467.920568355766,\n    \"key_1\": 863.2163210734578\n  },\n  {\n    \"key_0\": false,\n    \"key_1\": 287\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fd1a175-17b4-4237-b24c-330cb34e0c55",
+          "name": "Get ESR exports for a commodity across all countries for a market year",
+          "request": {
+            "name": "Get ESR exports for a commodity across all countries for a market year",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "exports",
+                "commodityCode",
+                ":commodityCode",
+                "allCountries",
+                "marketYear",
+                ":marketYear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commodityCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "marketYear",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a42a17cd-6f46-4cd9-b8f6-7f131aa98f8e",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "exports",
+                    "commodityCode",
+                    ":commodityCode",
+                    "allCountries",
+                    "marketYear",
+                    ":marketYear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commodityCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "marketYear",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 4467.920568355766,\n    \"key_1\": 863.2163210734578\n  },\n  {\n    \"key_0\": false,\n    \"key_1\": 287\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fa08848-eec2-4e06-9b3a-b74101cf1952",
+          "name": "Get ESR exports for a commodity, country, and market year",
+          "request": {
+            "name": "Get ESR exports for a commodity, country, and market year",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "esr",
+                "exports",
+                "commodityCode",
+                ":commodityCode",
+                "countryCode",
+                ":countryCode",
+                "marketYear",
+                ":marketYear"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "commodityCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "countryCode",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "marketYear",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "639976c6-5a39-4d7c-899c-89af71adfe14",
+              "name": "JSON response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "esr",
+                    "exports",
+                    "commodityCode",
+                    ":commodityCode",
+                    "countryCode",
+                    ":countryCode",
+                    "marketYear",
+                    ":marketYear"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "commodityCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "countryCode",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "marketYear",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API_KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key_0\": 4467.920568355766,\n    \"key_1\": 863.2163210734578\n  },\n  {\n    \"key_0\": false,\n    \"key_1\": 287\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apps.fas.usda.gov/OpenData",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "API_KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ba3a1c2b-61fd-46d9-b25d-f0306fd47942",
+    "name": "USDA FAS Open Data Services ESR API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural\nService (FAS) Open Data Services, derived from the public Swagger 2.0\ndocument at https://apps.fas.usda.gov/opendata/swagger/docs/v1 and the\nOpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.\nThe API exposes three datasets:\n  - ESR: U.S. weekly Export Sales of Agricultural Commodity Data\n  - GATS: Global Agricultural Trade System (Census and UN Trade)\n  - PSD: Production, Supply and Distribution\nAuthentication uses an `API_KEY` header issued via api.data.gov.\n\n\nContact Support:\n Name: USDA Foreign Agricultural Service",
+      "type": "text/plain"
+    }
+  }
+}

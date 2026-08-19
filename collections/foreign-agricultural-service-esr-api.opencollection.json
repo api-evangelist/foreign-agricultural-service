@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "USDA FAS Open Data Services ESR API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API_KEY",
+      "value": "{{API_KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ESR",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ESR regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/regions"
+          },
+          "docs": "List ESR regions"
+        },
+        {
+          "info": {
+            "name": "List ESR countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/countries"
+          },
+          "docs": "List ESR countries"
+        },
+        {
+          "info": {
+            "name": "List ESR commodities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/commodities"
+          },
+          "docs": "List ESR commodities"
+        },
+        {
+          "info": {
+            "name": "List ESR units of measure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/unitsOfMeasure"
+          },
+          "docs": "List ESR units of measure"
+        },
+        {
+          "info": {
+            "name": "List ESR data release dates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/datareleasedates"
+          },
+          "docs": "List ESR data release dates"
+        },
+        {
+          "info": {
+            "name": "Get ESR exports for a commodity across all countries for a market year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/exports/commodityCode/:commodityCode/allCountries/marketYear/:marketYear",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "marketYear",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get ESR exports for a commodity across all countries for a market year"
+        },
+        {
+          "info": {
+            "name": "Get ESR exports for a commodity, country, and market year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/esr/exports/commodityCode/:commodityCode/countryCode/:countryCode/marketYear/:marketYear",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "marketYear",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get ESR exports for a commodity, country, and market year"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

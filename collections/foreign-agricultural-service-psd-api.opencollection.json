@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "USDA FAS Open Data Services ESR PSD API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API_KEY",
+      "value": "{{API_KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PSD",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PSD data release dates for a commodity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodity/:commodityCode/dataReleaseDates",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PSD data release dates for a commodity"
+        },
+        {
+          "info": {
+            "name": "PSD for a commodity across all countries for a market year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodity/:commodityCode/country/all/year/:marketYear",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "marketYear",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PSD for a commodity across all countries for a market year"
+        },
+        {
+          "info": {
+            "name": "PSD for a commodity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodity/:commodityCode/country/:countryCode/year/:marketYear",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "marketYear",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PSD for a commodity"
+        },
+        {
+          "info": {
+            "name": "PSD world aggregate for a commodity and market year",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodity/:commodityCode/world/year/:marketYear",
+            "params": [
+              {
+                "name": "commodityCode",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "marketYear",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PSD world aggregate for a commodity and market year"
+        },
+        {
+          "info": {
+            "name": "List PSD regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/regions"
+          },
+          "docs": "List PSD regions"
+        },
+        {
+          "info": {
+            "name": "List PSD countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/countries"
+          },
+          "docs": "List PSD countries"
+        },
+        {
+          "info": {
+            "name": "List PSD commodities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodities"
+          },
+          "docs": "List PSD commodities"
+        },
+        {
+          "info": {
+            "name": "List PSD units of measure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/unitsOfMeasure"
+          },
+          "docs": "List PSD units of measure"
+        },
+        {
+          "info": {
+            "name": "List PSD commodity attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apps.fas.usda.gov/OpenData/api/psd/commodityAttributes"
+          },
+          "docs": "List PSD commodity attributes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
