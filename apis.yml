@@ -25,6 +25,9 @@ modified: '2026-04-28'
 position: Consumer
 tags:
   - Agriculture
+  - Federal-Government
+tags_raw:
+  - Agriculture
   - Federal Government
 url: >-
   https://raw.githubusercontent.com/api-evangelist/foreign-agricultural-service/refs/heads/main/apis.yml
@@ -33,6 +36,11 @@ apis:
 - aid: foreign-agricultural-service:fas-open-data
   name: USDA FAS Open Data API
   tags:
+  - Agriculture
+  - Trade
+  - Federal-Government
+  - Open Data
+  tags_raw:
   - Agriculture
   - Trade
   - Federal Government
