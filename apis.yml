@@ -5,6 +5,17 @@ description: >-
   Department of Agriculture (USDA) that works to promote U.S. agricultural
   exports and expand global markets for American agricultural products.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
