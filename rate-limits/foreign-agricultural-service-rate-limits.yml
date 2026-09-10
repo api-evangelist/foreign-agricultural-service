@@ -3,87 +3,66 @@ specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
 provider: Foreign Agricultural Service
 providerId: foreign-agricultural-service
+generated: '2026-09-10'
+method: probed
+source: >-
+  live responses from https://apps.fas.usda.gov/OpenData/api/esr/regions on 2026-09-10, plus a
+  read of the OpendataWeb portal and the Swagger 2.0 contract for any published limit
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
+modified: '2026-09-10'
 tags:
   - Agriculture
   - Federal Government
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Foreign Agricultural Service API surface.
-  Captures per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold
-  values to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - USDA FAS Open Data API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - USDA FAS Open Data API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - USDA FAS Open Data API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - USDA FAS Open Data API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - USDA FAS Open Data API
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+description: >-
+  Published rate limits for the USDA FAS Open Data Services: none. Recorded as a measured
+  zero, with the probe that measured it.
+supersedes: >-
+  REPLACES the 2026-05-04 bulk-sweep scaffold, which asserted a three-tier ladder (10/100/1000
+  requests per minute with 20/200/5000 burst), monthly quotas, X-RateLimit-Limit /
+  X-RateLimit-Remaining / X-RateLimit-Reset / Retry-After / RateLimit-Policy response headers,
+  429 and 503 status codes, and four rate-limit policies. NOT ONE of those was published by
+  FAS or emitted by the API. The scaffold was written by the sweep, not harvested. Replaced
+  with the probe result.
+limit_count: 0
+published: false
+headers_observed: []
+headers_note: >-
+  Live responses carry only content-type, date, content-length,
+  strict-transport-security and x-content-type-options. There is no RateLimit-*, no
+  X-RateLimit-*, no Retry-After and no RateLimit-Policy. An agent has no runtime budget signal
+  of any kind — it cannot see remaining quota and cannot distinguish throttling from the
+  generic 500 this API returns on a bad credential.
+status_on_exhaustion: null
+status_note: 'no 429 is documented in the contract or mentioned on the portal; exhaustion behaviour is unknown'
+limits: []
+api_data_gov_note: >-
+  A tempting wrong answer, recorded so the next pass does not make it. FAS mints its keys
+  through the api.data.gov signup widget (the portal bundle loads
+  api.data.gov/static/javascripts/signup_embed.js), and api.data.gov publishes a default
+  hourly limit and X-RateLimit headers for the APIs it fronts. But api.data.gov does NOT proxy
+  this API — apps.fas.usda.gov answers directly, its responses carry none of the gateway's
+  headers, and its "Bad API Key" error body is FAS's own, not api.data.gov's. So the
+  api.data.gov defaults are NOT this API's limits and are not recorded as such.
+evidence:
+  - request: GET https://apps.fas.usda.gov/OpenData/api/esr/regions (no API_KEY header)
+    status: 403
+    rate_limit_headers: none
+    date: '2026-09-10'
+  - request: 'GET https://apps.fas.usda.gov/OpenData/api/esr/regions with header API_KEY: <invalid>'
+    status: 500
+    rate_limit_headers: none
+    date: '2026-09-10'
+  - source: https://apps.fas.usda.gov/opendata/swagger/docs/v1
+    finding: the contract documents exactly one response per operation (200 OK); no 429 and no limit is declared
+  - source: https://apps.fas.usda.gov/opendataweb/home
+    finding: the portal publishes no usage policy, quota or fair-use statement
+unmeasured:
+  note: >-
+    The authenticated surface was not probed. API Evangelist holds no FAS API key and does not
+    obtain credentials, so a limit that only reveals itself to a valid key — a per-key hourly
+    ceiling enforced silently, for instance — would not appear here. limit_count: 0 means
+    "nothing published and nothing signalled", not "proven unlimited".
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

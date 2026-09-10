@@ -1,0 +1,86 @@
+generated: '2026-09-10'
+method: searched
+source: >-
+  https://apps.fas.usda.gov/opendata/swagger/docs/v1 (contract), the OpendataWeb portal
+  bundle, and live probes on 2026-09-10
+versioning:
+  scheme: uri-path
+  current: v1
+  evidence: >-
+    The contract is served at /opendata/swagger/docs/v1 and declares info.version "v1". The
+    runtime base path is /OpenData (no version segment), so the version lives on the document,
+    not on the request URL — a consumer calling
+    https://apps.fas.usda.gov/OpenData/api/psd/commodities is not pinned to v1 by anything in
+    the URL they send.
+  v2_probe:
+    url: https://apps.fas.usda.gov/opendata/swagger/docs/v2
+    status: 404
+    note: no second version is published; v1 is the only contract
+  portal_generation:
+    note: >-
+      The portal itself is on its second generation — /opendataweb/* redirects to
+      /opendatawebV2/ — but that is the Angular front end, not the API. No corresponding API
+      version change accompanied it.
+  docs: https://apps.fas.usda.gov/opendata/swagger/ui/index
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  evidence: >-
+    No deprecation or retirement policy is published on the portal or the FAS data pages, and
+    no Sunset or Deprecation response header was observed on live responses (probed
+    2026-09-10). RFC 8594 is not implemented. NO `Deprecation` pointer is wired into apis.yml.
+  deprecated_operations: []
+  deprecated_operation_note: >-
+    Zero operations carry `deprecated: true` in the contract. That is a true zero on a 35-
+    operation surface that has been stable for years, not an unmeasured one.
+status_page:
+  url: null
+  published: false
+  evidence: >-
+    No status page exists for FAS or for USDA. status.usda.gov does not resolve (NXDOMAIN,
+    probed 2026-09-10) and the portal links none. NO `StatusPage` pointer is wired into
+    apis.yml.
+  what_exists_instead: >-
+    A hidden HTML banner in the portal shell (apps.fas.usda.gov/opendatawebV2/, a
+    display:none div) that FAS un-hides to announce planned outages — the last one left in the
+    markup announces a June server upgrade — and a commented-out lapse-in-federal-funding
+    notice. Both are human-readable page furniture with no machine-readable equivalent: an
+    agent cannot poll for FAS availability, it can only fail.
+sla:
+  url: null
+  uptime_target: null
+  evidence: >-
+    None published. This is a free federal open-data service with no subscriber agreement, so
+    no uptime commitment is made to anyone; recorded as an honest absence rather than a gap
+    the agency is failing to fill.
+release_cadence:
+  note: >-
+    The API has no release notes, but it DOES publish data-release timing as a first-class
+    part of the contract, which is the lifecycle signal that actually matters for this
+    provider. Six operations exist solely to tell a consumer what has been published and when:
+    ESRData_GetDataReleaseInfo, PSDData_GetDataReleaseInfo,
+    GATSData_GetCensusExportDataReleaseInfo, GATSData_GetCensusImportDataReleaseInfo,
+    GATSData_GetUNTradeExportDataReleaseInfo and GATSData_GetUNTradeImportDataReleaseInfo.
+  underlying_cadence:
+    esr: weekly (US export sales are reported weekly)
+    gats_census: monthly (US Census trade data by year and month)
+    gats_untrade: annual (UN ComTrade reports yearly, per GATSData_GetUNTradeExports)
+    psd: by market year, revised through the year
+  cadence_evidence: >-
+    Read from the contract's own path parameters and operation summaries, not from a schedule
+    page: ESR paths take {marketYear} and the dataset is described as "Weekly Export Sales";
+    Census GATS paths take {year}/{month}; UN Trade paths take {year} only and the summary
+    states "UN COMTrade reports data on a yearly basis".
+changelog:
+  published: false
+  evidence: >-
+    No dated changelog, release-notes page or RSS feed for the API was found on the portal or
+    on the FAS data pages. NO `ChangeLog` pointer is wired into apis.yml and no changelog/
+    artifact is written, because there is nothing to structure.
+  adjacent: >-
+    FAS operates a GovDelivery subscription list
+    (https://public.govdelivery.com/accounts/USDAFAS/subscriber/new, linked from the portal
+    footer) and a feeds page at https://www.fas.usda.gov/feeds. Both carry agency and report
+    announcements, not API change notices.

@@ -1,11 +1,11 @@
-generated: '2026-07-11'
+generated: '2026-09-10'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
 - host: www.fas.usda.gov
   https: true
   tls_version: TLSv1.3
-  cert_expires: Dec 17 23:59:59 2026 GMT
+  cert_expires: Jan 16 23:59:59 2027 GMT
   hsts: null
 - host: apps.fas.usda.gov
   https: true
@@ -16,10 +16,27 @@ domains:
 - domain: usda.gov
   dnssec: true
   caa:
-  - 0 issue "globalsign.com"
-  - 0 issue "letsencrypt.org"
   - 0 issue "digicert.com"
+  - 0 issue "globalsign.com"
   - 0 iodef "mailto:icam_as_notify@ocio.usda.gov"
+  - 0 issue "letsencrypt.org"
   spf: true
   dmarc: true
   dmarc_policy: reject
+observed_on_api_path:
+  note: >-
+    Added 2026-09-10 from a direct probe of the API itself. The automated prober records
+    hsts: null for apps.fas.usda.gov because it probes the host root, which returns a 500
+    ASP.NET error page with no HSTS header. The API path DOES set it: responses from
+    https://apps.fas.usda.gov/OpenData/api/esr/regions carry
+    `strict-transport-security: max-age=31536000; includeSubdomains; preload` and
+    `x-content-type-options: nosniff`. Recorded here rather than by editing the machine-written
+    hosts[] block above, so the prober's own output stays honest about what it measured.
+  host: apps.fas.usda.gov
+  path: /OpenData/api/esr/regions
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  hsts_preload: true
+  x_content_type_options: nosniff
+  fetched: '2026-09-10'

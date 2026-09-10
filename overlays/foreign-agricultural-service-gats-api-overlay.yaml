@@ -1,0 +1,43 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for USDA FAS Open Data Services — gats-api
+  version: 1.0.0
+extends: openapi/foreign-agricultural-service-gats-api-openapi.yml
+x-provenance:
+  generated: '2026-09-10'
+  method: derived
+  source: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json
+  note: >-
+    Captures what API Evangelist added to the refined document, so the provider's own contract
+    stays untouched and every enhancement is auditable. The operationIds added by this pass
+    are NOT ours — they are the provider's own, harvested verbatim from the live Swagger 2.0
+    at https://apps.fas.usda.gov/opendata/swagger/docs/v1 and carried across by path+method
+    match. Nothing in this overlay invents contract content.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-profile: https://apis.io/providers/foreign-agricultural-service/
+      x-source-contract: https://apps.fas.usda.gov/opendata/swagger/docs/v1
+      x-source-contract-format: Swagger 2.0
+      x-harvested: '2026-09-10'
+      x-license: >-
+        US Government work. Data published by the USDA Foreign Agricultural Service is in the
+        public domain in the United States.
+      x-agent-notes: >-
+        Read-only surface: every operation is a GET, so there is no idempotency, dry-run or
+        reversal contract to honour. Authenticate with a free key in the API_KEY header. There
+        is no pagination and no query parameter of any kind — the path is the query. Errors
+        are not RFC 9457: a missing key returns 403 with the bare JSON string "Bad API Key",
+        and an invalid key returns 500, so do not treat a 500 here as retryable without first
+        checking the credential.
+  - target: $
+    update:
+      x-apievangelist-artifacts:
+        conventions: conventions/foreign-agricultural-service-conventions.yml
+        errors: errors/foreign-agricultural-service-problem-types.yml
+        lifecycle: lifecycle/foreign-agricultural-service-lifecycle.yml
+        data_model: data-model/foreign-agricultural-service-data-model.yml
+        conformance: conformance/foreign-agricultural-service-conformance.yml
+        authentication: authentication/foreign-agricultural-service-authentication.yml
+        rate_limits: rate-limits/foreign-agricultural-service-rate-limits.yml
+        skills: skills/_index.yml

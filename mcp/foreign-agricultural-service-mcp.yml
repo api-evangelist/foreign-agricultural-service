@@ -1,0 +1,128 @@
+generated: '2026-09-10'
+method: derived
+status: candidate
+source: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json
+published_server: null
+note: >-
+  USDA FAS operates NO MCP server. This file is a CANDIDATE tool shape derived from the
+  provider's own harvested Swagger 2.0 contract — it is not a server anyone runs. It carries
+  the `X-MCPServerCandidate` pointer in apis.yml, never `MCPServer`: wiring the latter would
+  credit a federal agency with an agent surface it has not built.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: api-key
+  verified: derived
+  note: >-
+    mode:none because no FAS-operated server exists in either shape — no hosted https endpoint
+    an MCP client could POST to, and no first-party stdio package to install. `auth: api-key`
+    describes what any server built against this API would need (the API_KEY header), not an
+    auth flow FAS publishes for MCP.
+searched:
+  probes:
+    - url: https://apps.fas.usda.gov/mcp
+      status: 404
+      note: empty body — no route, and no MCP endpoint on the API host root
+    - url: https://apps.fas.usda.gov/OpenData/mcp
+      status: 403
+      note: '"Bad API Key" — the /OpenData router answered, so this is the REST API gate, not an MCP endpoint'
+    - url: https://www.fas.usda.gov/.well-known/agent-card.json
+      status: 403
+      note: Akamai blocks the /.well-known/ prefix; no card, and none at the legacy /.well-known/agent.json either
+  registries_checked:
+    - registry: npm
+      query: https://registry.npmjs.org/-/v1/search?text=usda-fas / fas-usda
+      result: >-
+        one THIRD-PARTY server, @pipeworx/mcp-fas 0.1.0 (published 2026-04-15, repo
+        pipeworx-io/mcp-fas). Published by an independent developer, not USDA. It is recorded
+        in packages/foreign-agricultural-service-packages.yml under third_party and is NOT
+        treated as a FAS agent surface.
+    - registry: PyPI
+      query: pypi.org/pypi/{usda-fas,fas-api,usdafas}/json
+      result: 404 on all
+  registry_result: no USDA-published MCP server exists in any registry
+server:
+  name: usda-fas-open-data
+  transport: http
+  url: null
+candidate_tools:
+  note: >-
+    One tool per real operationId from the harvested Swagger. Every tool's input schema IS the
+    backing operation's path parameters in
+    openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json — nothing is
+    invented. All 35 operations are GET, so every tool is read-only.
+  tools:
+    - name: list_esr_commodities
+      description: List the commodities available in the Export Sales Reporting dataset
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#ESRData_GetCommodities
+      inputs: []
+    - name: list_esr_countries
+      description: List ESR destination countries with their country codes
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#ESRData_GetCountries
+      inputs: []
+    - name: list_esr_regions
+      description: List ESR region codes and names, used to group country records
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#ESRData_GetRegions
+      inputs: []
+    - name: list_esr_release_dates
+      description: List which ESR commodities and market years currently have released data
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#ESRData_GetDataReleaseInfo
+      inputs: []
+    - name: get_esr_exports_all_countries
+      description: Weekly US export sales of one commodity to all countries for a market year
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#ESRData_GetAllCountriesData
+      inputs: [commodityCode, marketYear]
+    - name: get_esr_exports_by_country
+      description: Weekly US export sales of one commodity to one country for a market year
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#ESRData_GetCountryData
+      inputs: [commodityCode, countryCode, marketYear]
+    - name: list_gats_hs6_commodities
+      description: List GATS commodities at the 6-digit Harmonized System level
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#GATSData_GetHS6Commodities
+      inputs: []
+    - name: get_gats_census_exports
+      description: US Census export trade for a partner country, year and month
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#GATSData_GetCensusExports
+      inputs: [partnerCode, year, month]
+    - name: get_gats_census_imports
+      description: US Census import trade for a partner country, year and month
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#GATSData_GetCensusImport
+      inputs: [partnerCode, year, month]
+    - name: get_gats_untrade_exports
+      description: UN ComTrade export data for a reporter country and year
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#GATSData_GetUNTradeExports
+      inputs: [reporterCode, year]
+    - name: get_gats_customs_district_exports
+      description: US exports by customs district for a partner country, year and month
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#GATSData_GetCustomsDistrictsExports
+      inputs: [partnerCode, year, month]
+    - name: list_psd_commodities
+      description: List commodities tracked in Production, Supply and Distribution
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#PSDData_GetCommodities
+      inputs: []
+    - name: list_psd_commodity_attributes
+      description: List the PSD attributes (production, exports, ending stocks, …) reported per commodity
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#PSDData_GetCommodityAttributes
+      inputs: []
+    - name: get_psd_commodity_world
+      description: World-level PSD forecast for one commodity and market year
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#PSDData_GetWorldCommodityDataByYear
+      inputs: [commodityCode, marketYear]
+    - name: get_psd_commodity_all_countries
+      description: PSD forecast for one commodity across all countries for a market year
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#PSDData_GetCommodityDataByYear
+      inputs: [commodityCode, marketYear]
+    - name: get_psd_commodity_by_country
+      description: PSD forecast for one commodity in one country for a market year
+      source_operation: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json#PSDData_GetCountryCommodityDataByYear
+      inputs: [commodityCode, countryCode, marketYear]
+coverage:
+  rest_operations_total: 35
+  candidate_tools: 16
+  note: >-
+    16 of 35 operations are shaped as tools; the remaining 19 are the per-dataset reference
+    lookups (regions / countries / units of measure / release dates repeated for GATS and PSD)
+    and the re-export variants, which a real server would fold into the tools above rather
+    than expose one-for-one.

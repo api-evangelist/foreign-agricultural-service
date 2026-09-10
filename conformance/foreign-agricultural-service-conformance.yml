@@ -1,0 +1,116 @@
+generated: '2026-09-10'
+method: derived
+source: >-
+  openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json (the provider's
+  live contract at https://apps.fas.usda.gov/opendata/swagger/docs/v1), plus live probes of
+  the API surface on 2026-09-10
+note: >-
+  Read off the contract and off observed responses, not off marketing prose. FAS publishes no
+  compliance page, no certification list and no standards-conformance claim of its own, so NO
+  `Compliance` pointer is wired into apis.yml — the only compliance-shaped thing USDA operates
+  is a department-wide vulnerability disclosure program, which is recorded in security/ and
+  wired as `Security`, not as a certification.
+standards:
+  - id: swagger-2.0
+    conforms: true
+    evidence: 'contract root declares "swagger": "2.0"; served live at https://apps.fas.usda.gov/opendata/swagger/docs/v1'
+  - id: openapi-3.x
+    conforms: false
+    evidence: >-
+      The provider publishes Swagger 2.0 only. The OpenAPI 3.2 documents in openapi/ are API
+      Evangelist conversions, not a provider-published 3.x contract.
+  - id: oauth2
+    conforms: false
+    evidence: 'securityDefinitions contains one scheme, type apiKey; no oauth2 flow is declared or documented'
+  - id: oidc
+    conforms: false
+    evidence: 'no /.well-known/openid-configuration on any host (probed 2026-09-10)'
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Probed live. A missing key returns 403 with the bare JSON string "Bad API Key"; a
+      malformed key returns 500 with {"message":"An error has occurred."}. Neither carries
+      application/problem+json nor the type/title/status/detail members.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: '/.well-known/security.txt returns 404 at origin on www.fas.usda.gov and www.usda.gov'
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: 'no Sunset or Deprecation header observed on live responses; no deprecation policy published'
+  - id: json-api
+    conforms: false
+    evidence: 'responses are plain JSON arrays/objects; no top-level data/errors envelope, no application/vnd.api+json'
+  - id: pagination
+    conforms: false
+    evidence: >-
+      No pagination exists anywhere in the contract — no limit/offset/cursor/page parameter on
+      any of the 35 operations. Result-set size is bounded by the path parameters instead
+      (a commodity, a country, a market year, a month), which is a deliberate slicing design
+      for reference data rather than a missing feature.
+  - id: idempotency
+    conforms: na
+    evidence: >-
+      All 35 operations are GET, so every operation is idempotent by HTTP semantics and there
+      is no mutating surface for an idempotency-key contract to protect. Recorded na, not
+      false.
+  - id: content-negotiation
+    conforms: true
+    evidence: >-
+      Every operation declares produces [application/json, text/json, application/xml,
+      text/xml] — the same resource is served as JSON or XML by Accept header. Real,
+      contract-declared negotiation, not an accident of the framework.
+  - id: https-only
+    conforms: true
+    evidence: 'contract declares schemes: [https]; live responses carry strict-transport-security: max-age=31536000; includeSubdomains; preload'
+domain_standards:
+  note: >-
+    REWARD-ONLY, and asserted narrowly. FAS is not an identity or messaging provider, so the
+    government regime shortlist (dcat, ckan, eidas, fedramp, open-data-charter) has no match
+    in this contract — none of those vocabularies appears in it, and no DCAT or CKAN catalog
+    endpoint exists. What the contract DOES declare is the classification vocabulary of its
+    own market, international agricultural trade, and that is recorded here with the exact
+    contract location rather than inferred from prose.
+  standards:
+    - id: wco-harmonized-system
+      name: WCO Harmonized Commodity Description and Coding System (HS6 and HS10)
+      conforms: true
+      evidence: >-
+        openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json. Two levels
+        of the same standard are declared in operation summaries: GATSData_GetHS6Commodities
+        (/api/gats/HS6Commodities) — "Commodities classified at a broader level of
+        classification, at the HS6 Level, as opposed to HS10 Level. Use this to correlate the
+        Import, Export and Re-export data records obtained by querying UN Trade Data"; and
+        GATSData_GetCommodities (/api/gats/commodities) — "Commodity record contains HS10 Code
+        and Census and FAS Unit Of Measure IDS". The GATS dataset is keyed on HS codes, so a
+        consumer who already speaks HS integrates against these responses with no bespoke
+        crosswalk.
+      limit_of_claim: >-
+        The contract exposes HS6 codes as data; it does not declare an HS schema URN or a
+        conformance class. This is an identifier-scheme conformance, which is the strongest
+        form available in this market, and it is stated as such rather than dressed up as a
+        certified profile.
+    - id: un-comtrade-reporter-codes
+      name: UN ComTrade reporter / partner country coding
+      conforms: true
+      evidence: >-
+        Five operations key on UN ComTrade identifiers — GATSData_GetUNTradeExports,
+        GATSData_GetUNTradeImports and GATSData_GetUNTradeReExports each take
+        {reporterCode}/{year}, and two release-date operations sit under
+        /api/gats/UNTrade/data/. The GATSData_GetUNTradeExports summary states the coding
+        explicitly: "Given Reporter Code (Ex IN for India), and Export Year (for ex, 2010),
+        this API End point returns a list of records of Commodity Export data as reported by
+        UN COMTrade for a given year. UN COMTrade reports data on a yearly basis at a HS6 Code
+        Level." FAS republishes UN ComTrade trade flows under UN ComTrade's own reporter
+        coding rather than a FAS-local country id.
+      limit_of_claim: >-
+        The Census-sourced half of GATS (censusExports/censusImports/censusReExports and the
+        customs-district operations) uses {partnerCode}, a US Census Schedule C/D coding, not
+        the UN scheme. The two coexist in one API and a consumer must know which is which —
+        the contract does not say, and that is a real integration hazard worth naming.
+    - id: us-census-schedule-d-customs-districts
+      name: US Census customs district coding
+      conforms: true
+      evidence: >-
+        /api/gats/customsDistricts (GATSData_GetCustomsDistricts) plus the three
+        customsDistrict{Exports,Imports,ReExports} operations expose the US Census customs
+        district dimension of the same trade flows.

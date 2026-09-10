@@ -1,8 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: USDA FAS Open Data Services ESR PSD API
   version: '1.0'
-  description: "Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural\nService (FAS) Open Data Services, derived from the public Swagger 2.0\ndocument at https://apps.fas.usda.gov/opendata/swagger/docs/v1 and the\nOpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.\nThe API exposes three datasets:\n  - ESR: U.S. weekly Export Sales of Agricultural Commodity Data\n  - GATS: Global Agricultural Trade System (Census and UN Trade)\n  - PSD: Production, Supply and Distribution\nAuthentication uses an `API_KEY` header issued via api.data.gov.\n"
+  description: "Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural\nService (FAS) Open\
+    \ Data Services, derived from the public Swagger 2.0\ndocument at https://apps.fas.usda.gov/opendata/swagger/docs/v1\
+    \ and the\nOpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.\nThe API exposes three\
+    \ datasets:\n  - ESR: U.S. weekly Export Sales of Agricultural Commodity Data\n  - GATS: Global Agricultural\
+    \ Trade System (Census and UN Trade)\n  - PSD: Production, Supply and Distribution\nAuthentication\
+    \ uses an `API_KEY` header issued via api.data.gov.\n"
   contact:
     name: USDA Foreign Agricultural Service
     url: https://www.fas.usda.gov/
@@ -25,6 +30,12 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: PSDData_GetDataReleaseInfo
+      description: Returns a set of records with the date of the last release of PSD Commodity Forecast
+        Data. Please note that there could be revision on the forecast numbers for multiple years on a
+        given commodity, and so this API endpoint returns set of records containing data release dates
+        at a commodity level Use this information to query for only the PSD Forecast data that has changed
+        since last invocation of this API End point
   /api/psd/commodity/{commodityCode}/country/all/year/{marketYear}:
     parameters:
     - $ref: '#/components/parameters/CommodityCode'
@@ -36,6 +47,11 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: PSDData_GetCommodityDataByYear
+      description: Returns a set of records with Forecast number for a given Commodity Code (Ex, 0440000
+        for Corn) and a given Market Year (Ex, 2017) for  all applicable countries. PSD Database has data
+        for most commodities since year 1960. Please see Commodities end point to get a list of all PSD
+        Commodities with corresponding Commodity Code.
   /api/psd/commodity/{commodityCode}/country/{countryCode}/year/{marketYear}:
     parameters:
     - $ref: '#/components/parameters/CommodityCode'
@@ -50,6 +66,12 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: PSDData_GetCountryCommodityDataByYear
+      description: Returns a set of records with Forecast number for a given Commodity Code (Ex, 0440000
+        for Corn) and a given Market Year (Ex, 2017) for  a given Country (Ex, BR for Brazil). PSD Database
+        has data for most commodities since year 1960. Please see Commodities end point to get a list
+        of all PSD Commodities with corresponding Commodity Code, and Countries end point for a list of
+        all countries with corresponding Country Code
   /api/psd/commodity/{commodityCode}/world/year/{marketYear}:
     parameters:
     - $ref: '#/components/parameters/CommodityCode'
@@ -61,6 +83,12 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: PSDData_GetWorldCommodityDataByYear
+      description: Returns a set of records with Forecast number for a given Commodity Code (Ex, 0440000
+        for Corn) and a given Market Year (Ex, 2017) for  the world.Data from all applicable countries
+        are aggregated together for reporting it at the World Level. PSD Database has data for most commodities
+        since year 1960. Please see Commodities end point to get a list of all PSD Commodities with corresponding
+        Commodity Code.
   /api/psd/regions:
     get:
       tags:
@@ -69,6 +97,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: PSDData_GetRegions
+      description: Returns a set of records with data for the Regions as classified in PSD System.  This
+        data could be used to correlate the Region Name based on region code in the Data returned by Countries
+        End Point
   /api/psd/countries:
     get:
       tags:
@@ -77,6 +109,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: PSDData_GetCountries
+      description: Returns a set of records with data for Countries and the corresponding Region Code
+        the Country belongs to. This data could be used to correlate the Country Name based on country
+        code in the data returned by other end points returning Commodity Forecasts.
   /api/psd/commodities:
     get:
       tags:
@@ -85,6 +121,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: PSDData_GetCommodities
+      description: Returns a set of records with data for Commodities with the corresponding Commodity
+        Code.  This data could be used to correlate the Commodity Name based on the Commodity Code in
+        the data returned by other end points returning Commodity Forecasts.
   /api/psd/unitsOfMeasure:
     get:
       tags:
@@ -93,6 +133,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: PSDData_GetUnitsOfMeasure
+      description: Returns a set of records with data for Units Of Measure with the corresponding Units
+        Of Measure Id.  This data could be used to correlate the Unit of Measure Name based on the Id
+        in the data returned by other end points returning Commodity Forecasts.
   /api/psd/commodityAttributes:
     get:
       tags:
@@ -101,7 +145,32 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: PSDData_GetCommodityAttributes
+      description: Returns a set of records with data for Commodity Attribute Names with the corresponding
+        Attribute Id.  This data could be used to correlate theAttribute Name based on the Id in the data
+        returned by other end points returning Commodity Forecasts. PSD database tracks Commodity Forecast
+        numbers across multiple attributes broadly classified under "Production", "Supply" and "Sistribution"
+        categories.
 components:
+  parameters:
+    MarketYear:
+      name: marketYear
+      in: path
+      required: true
+      schema:
+        type: integer
+    CountryCode:
+      name: countryCode
+      in: path
+      required: true
+      schema:
+        type: string
+    CommodityCode:
+      name: commodityCode
+      in: path
+      required: true
+      schema:
+        type: string
   responses:
     Json:
       description: JSON response
@@ -112,25 +181,6 @@ components:
             items:
               type: object
               additionalProperties: true
-  parameters:
-    CountryCode:
-      name: countryCode
-      in: path
-      required: true
-      schema:
-        type: string
-    MarketYear:
-      name: marketYear
-      in: path
-      required: true
-      schema:
-        type: integer
-    CommodityCode:
-      name: commodityCode
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     apiKey:
       type: apiKey

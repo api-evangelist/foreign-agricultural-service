@@ -1,8 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: USDA FAS Open Data Services ESR API
   version: '1.0'
-  description: "Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural\nService (FAS) Open Data Services, derived from the public Swagger 2.0\ndocument at https://apps.fas.usda.gov/opendata/swagger/docs/v1 and the\nOpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.\nThe API exposes three datasets:\n  - ESR: U.S. weekly Export Sales of Agricultural Commodity Data\n  - GATS: Global Agricultural Trade System (Census and UN Trade)\n  - PSD: Production, Supply and Distribution\nAuthentication uses an `API_KEY` header issued via api.data.gov.\n"
+  description: "Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural\nService (FAS) Open\
+    \ Data Services, derived from the public Swagger 2.0\ndocument at https://apps.fas.usda.gov/opendata/swagger/docs/v1\
+    \ and the\nOpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.\nThe API exposes three\
+    \ datasets:\n  - ESR: U.S. weekly Export Sales of Agricultural Commodity Data\n  - GATS: Global Agricultural\
+    \ Trade System (Census and UN Trade)\n  - PSD: Production, Supply and Distribution\nAuthentication\
+    \ uses an `API_KEY` header issued via api.data.gov.\n"
   contact:
     name: USDA Foreign Agricultural Service
     url: https://www.fas.usda.gov/
@@ -23,6 +28,9 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: ESRData_GetRegions
+      description: Returns a set of records with Region Codes and Region Names. Use it to associate Region
+        Name with Country records obtained by querying Country end point
   /api/esr/countries:
     get:
       tags:
@@ -31,6 +39,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: ESRData_GetCountries
+      description: Returns a set of records with Countries and their corresponding Regions Codes the Country
+        belongs to. Use it to associate Country Name with Commodity Data records obtained by querying
+        Commodity Data End point
   /api/esr/commodities:
     get:
       tags:
@@ -39,6 +51,9 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: ESRData_GetCommodities
+      description: Returns a set of records with Commodity Information. Use it to associate Commodity
+        Name with Commodity Data records obtained by querying Commodity Data End point
   /api/esr/unitsOfMeasure:
     get:
       tags:
@@ -47,6 +62,9 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: ESRData_GetUnitsOfMeasure
+      description: Returns a set of records with Units of Measure Information. Use it to associate Unit
+        Of Measure Name with Commodity Data redords obtained by querying Commodity Data End point
   /api/esr/datareleasedates:
     get:
       tags:
@@ -55,6 +73,12 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: ESRData_GetDataReleaseInfo
+      description: Returns a set of records with the date of the last release of ESR Commodity Export
+        Data. Please note that there could be revision on the Export numbers for multiple years on a given
+        commodity, and so this API endpoint returns set of records containing data release dates at a
+        commodity level Use this information to query for only the Export data that has changed since
+        last invocation of this API End point
   /api/esr/exports/commodityCode/{commodityCode}/allCountries/marketYear/{marketYear}:
     parameters:
     - $ref: '#/components/parameters/CommodityCode'
@@ -66,6 +90,11 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: ESRData_GetAllCountriesData
+      description: 'Given Commodity Code (Ex: 104 for Wheat - White ) and MarketYear (Ex: 2017) this API
+        End point will return a list of US Export records of White Wheat to all applicable countries from
+        USA for the given Market Year. Please see DataReleaseDates end point to get a list of all Commodities
+        and the corresponding Market Year data.'
   /api/esr/exports/commodityCode/{commodityCode}/countryCode/{countryCode}/marketYear/{marketYear}:
     parameters:
     - $ref: '#/components/parameters/CommodityCode'
@@ -78,7 +107,31 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: ESRData_GetCountryData
+      description: 'Given Commodity Code (Ex: 104 for Wheat - White ), Country Code (Ex:1220 for Canada)
+        and MarketYear (Ex: 2017) this API End point will return a list of US Export records of White
+        Wheat to Canada from USA for the give Market Year. Please see DataReleaseDates end point to get
+        a list of all Commodities and the corresponding Market Year data.'
 components:
+  parameters:
+    MarketYear:
+      name: marketYear
+      in: path
+      required: true
+      schema:
+        type: integer
+    CountryCode:
+      name: countryCode
+      in: path
+      required: true
+      schema:
+        type: string
+    CommodityCode:
+      name: commodityCode
+      in: path
+      required: true
+      schema:
+        type: string
   responses:
     Json:
       description: JSON response
@@ -89,25 +142,6 @@ components:
             items:
               type: object
               additionalProperties: true
-  parameters:
-    CountryCode:
-      name: countryCode
-      in: path
-      required: true
-      schema:
-        type: string
-    MarketYear:
-      name: marketYear
-      in: path
-      required: true
-      schema:
-        type: integer
-    CommodityCode:
-      name: commodityCode
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     apiKey:
       type: apiKey

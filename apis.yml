@@ -1,9 +1,16 @@
 aid: foreign-agricultural-service
 name: Foreign Agricultural Service
 description: >-
-  The Foreign Agricultural Service (FAS) is a branch of the United States
-  Department of Agriculture (USDA) that works to promote U.S. agricultural
-  exports and expand global markets for American agricultural products.
+  The Foreign Agricultural Service (FAS) is the trade and export agency of the United States
+  Department of Agriculture (USDA), working to promote U.S. agricultural exports and expand
+  global markets for American agricultural products. FAS runs the Open Data Services at
+  apps.fas.usda.gov, a free, key-gated HTTPS/JSON API publishing three datasets on U.S. and
+  world agricultural trade: ESR (Export Sales Reporting — weekly U.S. export sales by
+  commodity, destination and market year), GATS (the Global Agricultural Trade System —
+  U.S. Census and UN ComTrade import, export and re-export flows, including trade by U.S.
+  customs district), and PSD (Production, Supply and Distribution — world commodity
+  production, supply and use forecasts). The surface is 35 read-only GET operations behind a
+  single API_KEY header, described by a live Swagger 2.0 contract and rendered in Swagger UI.
 type: Index
 deliveryModel:
   model: unknown
@@ -33,14 +40,24 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/foreign-agricultural-service.png
 access: 3rd-Party
 created: '2024-12-25'
-modified: '2026-04-28'
+modified: '2026-09-10'
 position: Consuming
 tags:
   - Agriculture
   - Federal-Government
+  - Trade
+  - Open-Data
+  - Commodities
+  - Exports
+  - Government
 tags_raw:
   - Agriculture
   - Federal Government
+  - Trade
+  - Open Data
+  - Commodities
+  - Exports
+  - Government
 url: >-
   https://raw.githubusercontent.com/api-evangelist/foreign-agricultural-service/refs/heads/main/apis.yml
 specificationVersion: '0.23'
@@ -58,9 +75,15 @@ apis:
   - Federal Government
   - Open Data
   humanURL: https://apps.fas.usda.gov/opendataweb/home
+  baseURL: https://apps.fas.usda.gov/OpenData
   properties:
   - url: https://apps.fas.usda.gov/opendataweb/home
     type: Documentation
+  - type: OpenAPI
+    url: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json
+    name: FAS Open Data Services — provider Swagger 2.0 (harvested verbatim 2026-09-10)
+  - type: APIReference
+    url: https://apps.fas.usda.gov/opendata/swagger/ui/index
   description: >-
     The USDA Foreign Agricultural Service Open Data API provides programmatic access to U.S. agricultural
     trade data, including the Global Agricultural Trade System (GATS), Export Sales Reporting (ESR), and
@@ -71,27 +94,36 @@ apis:
   humanURL: https://apps.fas.usda.gov/opendataweb/home
   tags:
   - ESR
+  baseURL: https://apps.fas.usda.gov/OpenData
   properties:
   - type: OpenAPI
     url: openapi/foreign-agricultural-service-esr-api-openapi.yml
+  - type: Overlay
+    url: overlays/foreign-agricultural-service-esr-api-overlay.yaml
 - aid: foreign-agricultural-service:foreign-agricultural-service-gats-api
   name: Foreign Agricultural Service GATS API
   description: Global Agricultural Trade System
   humanURL: https://apps.fas.usda.gov/opendataweb/home
   tags:
   - GATS
+  baseURL: https://apps.fas.usda.gov/OpenData
   properties:
   - type: OpenAPI
     url: openapi/foreign-agricultural-service-gats-api-openapi.yml
+  - type: Overlay
+    url: overlays/foreign-agricultural-service-gats-api-overlay.yaml
 - aid: foreign-agricultural-service:foreign-agricultural-service-psd-api
   name: Foreign Agricultural Service PSD API
   description: Production, Supply and Distribution
   humanURL: https://apps.fas.usda.gov/opendataweb/home
   tags:
   - PSD
+  baseURL: https://apps.fas.usda.gov/OpenData
   properties:
   - type: OpenAPI
     url: openapi/foreign-agricultural-service-psd-api-openapi.yml
+  - type: Overlay
+    url: overlays/foreign-agricultural-service-psd-api-overlay.yaml
 common:
   - type: AgenticAccess
     url: agentic-access/foreign-agricultural-service-agentic-access.yml
@@ -103,6 +135,52 @@ common:
     url: https://www.linkedin.com/company/usda-foreign-agricultural-service
   - type: Website
     url: https://www.fas.usda.gov/
+  - type: Packages
+    url: packages/foreign-agricultural-service-packages.yml
+  - type: LLMsTxt
+    url: llms/foreign-agricultural-service-llms.txt
+  - type: X-MCPServerCandidate
+    url: mcp/foreign-agricultural-service-mcp.yml
+    note: >-
+      NOT MCPServer. The manifest self-describes as status:candidate — a tool shape derived
+      from the provider's own contract, not a server USDA FAS runs. FAS operates no MCP
+      endpoint and ships no stdio package.
+  - type: Conformance
+    url: conformance/foreign-agricultural-service-conformance.yml
+  - type: ErrorCatalog
+    url: errors/foreign-agricultural-service-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/foreign-agricultural-service-lifecycle.yml
+  - type: Conventions
+    url: conventions/foreign-agricultural-service-conventions.yml
+  - type: DataModel
+    url: data-model/foreign-agricultural-service-data-model.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: Plans
+    url: plans/foreign-agricultural-service-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/foreign-agricultural-service-rate-limits.yml
+  - type: VulnerabilityDisclosure
+    url: security/foreign-agricultural-service-vulnerability-disclosure.yml
+  - type: Security
+    url: https://www.usda.gov/vulnerability-disclosure-policy
+  - type: DeveloperPortal
+    url: https://apps.fas.usda.gov/opendataweb/home
+  - type: APIReference
+    url: https://apps.fas.usda.gov/opendata/swagger/ui/index
+  - type: SignUp
+    url: https://apps.fas.usda.gov/opendatawebv2/#/signup
+  - type: Support
+    url: https://apps.fas.usda.gov/opendatawebv2/#/contact
+  - type: PrivacyPolicy
+    url: https://www.usda.gov/privacy-policy
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+
+x-enrichment:
+  date: '2026-09-10'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v3

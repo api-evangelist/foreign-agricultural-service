@@ -1,16 +1,84 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/foreign-agricultural-service-openapi.yml
+generated: '2026-09-10'
+method: searched
+source: >-
+  openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json (the provider's
+  live Swagger 2.0 at https://apps.fas.usda.gov/opendata/swagger/docs/v1), the OpendataWeb
+  portal signup flow, and live probes on 2026-09-10
+docs: https://apps.fas.usda.gov/opendatawebv2/#/signup
+note: >-
+  Upgraded from derived to searched: the derived pass read the scheme out of the refined
+  OpenAPIs, this one adds the provider's own contract wording, the issuance flow read out of
+  the portal bundle, and the observed failure behaviour. FAS publishes no prose authentication
+  guide — the Swagger UI and the signup form are the whole of it.
 summary:
   types:
-  - apiKey
+    - apiKey
   api_key_in:
-  - header
+    - header
+  oauth2_flows: []
+  scopes: 0
+  scopes_note: >-
+    No OAuth, no scopes, no permissions model, so no scopes/ artifact is written. A key is
+    all-or-nothing across all 35 operations and all three datasets — there is no way to issue
+    a key limited to, say, PSD.
 schemes:
-- name: apiKey
-  type: apiKey
-  in: header
-  parameter: API_KEY
-  description: API key issued via api.data.gov for the FAS Open Data Services
-  sources:
-  - openapi/foreign-agricultural-service-openapi.yml
+  - name: apiKey
+    type: apiKey
+    in: header
+    parameter: API_KEY
+    description: 'API Key Authentication (verbatim from the contract''s securityDefinitions)'
+    applied: >-
+      globally — the contract declares a root-level `security` requirement naming this scheme,
+      and every one of the 35 operations inherits it
+    format: the raw key value, with no scheme prefix (not `Bearer`, not `ApiKey`)
+    query_parameter_accepted: false
+    query_parameter_note: >-
+      The contract declares `in: header` only. Keeping the credential out of the URL is the
+      safer of the two designs — it stays out of access logs, Referer headers and browser
+      history — and it is worth crediting FAS for, because plenty of open-data APIs do the
+      opposite.
+    sources:
+      - openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json
+      - openapi/foreign-agricultural-service-esr-api-openapi.yml
+      - openapi/foreign-agricultural-service-gats-api-openapi.yml
+      - openapi/foreign-agricultural-service-psd-api-openapi.yml
+issuance:
+  cost: free
+  onboarding: self-serve
+  signup_url: https://apps.fas.usda.gov/opendatawebv2/#/signup
+  issuer: api.data.gov
+  mechanism: >-
+    The FAS portal embeds the api.data.gov signup widget — the Angular bundle at
+    apps.fas.usda.gov/opendatawebV2/main.*.js loads
+    https://api.data.gov/static/javascripts/signup_embed.js — so the key is minted by
+    api.data.gov and delivered by email, then presented to the FAS API directly.
+  gateway_note: >-
+    Precise distinction, because it changes what a consumer should expect: api.data.gov
+    ISSUES the key but does NOT proxy this API. apps.fas.usda.gov validates the key itself,
+    its responses carry none of the api.data.gov gateway headers, and its error body is FAS's
+    own. So api.data.gov's published rate limits and X-RateLimit headers do not apply here.
+  approval: automatic — no application, no review, no terms acceptance beyond the signup form
+  key_rotation:
+    documented: false
+    note: no rotation, revocation or expiry policy is published, and the portal exposes no key-management screen
+observed_failure_modes:
+  probed: '2026-09-10'
+  probed_endpoint: https://apps.fas.usda.gov/OpenData/api/esr/regions
+  not_probed: >-
+    The authenticated success path was not exercised. API Evangelist holds no FAS API key and
+    does not obtain credentials for profiled providers.
+  modes:
+  - condition: no API_KEY header
+    status: 403
+    body: '"Bad API Key"'
+    note: bare JSON string, not an object — a client parsing it as JSON gets a string, not a dict
+  - condition: malformed API_KEY value
+    status: 500
+    body: '{"message":"An error has occurred."}'
+    note: >-
+      A real defect. An invalid credential should be 401 or 403; returning 500 tells retry
+      libraries to treat a permanent auth failure as a transient server error and retry it.
+      Full write-up in errors/foreign-agricultural-service-problem-types.yml.
+transport:
+  https_only: true
+  hsts: 'max-age=31536000; includeSubdomains; preload (observed on API responses)'

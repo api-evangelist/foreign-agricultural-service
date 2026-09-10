@@ -1,0 +1,156 @@
+generated: '2026-09-10'
+method: derived
+source: >-
+  openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json (the provider's
+  live Swagger 2.0 at https://apps.fas.usda.gov/opendata/swagger/docs/v1), the OpendataWeb
+  portal, and live probes of the API on 2026-09-10
+docs: https://apps.fas.usda.gov/opendata/swagger/ui/index
+note: >-
+  FAS publishes no conventions guide, no getting-started page and no error reference — the
+  Swagger UI is the whole of the documentation. Everything here is read off the contract or
+  observed on the wire, and each block says which.
+
+media_types:
+  produces: [application/json, text/json, application/xml, text/xml]
+  consumes: []
+  negotiation: >-
+    Declared on all 35 operations. The same resource is served as JSON or XML by Accept
+    header — real, contract-declared content negotiation. `consumes` is empty on every
+    operation because nothing accepts a body.
+  observed: 'application/json; charset=utf-8 on live responses with no Accept header'
+
+authentication:
+  style: api-key-header
+  header: API_KEY
+  format: the key value alone, with no scheme prefix
+  in: header
+  not_a_query_param: >-
+    The key is NOT accepted as a query parameter. The contract declares in: header and only
+    header, which is the safer of the two designs — keys stay out of logs, referrers and
+    browser history.
+  issuance: >-
+    Free, self-serve. The portal signup page (https://apps.fas.usda.gov/opendatawebv2/#/signup)
+    embeds the api.data.gov signup widget — the portal bundle loads
+    https://api.data.gov/static/javascripts/signup_embed.js — so the key is minted through
+    api.data.gov even though the API itself is served directly by FAS.
+  gateway_note: >-
+    Worth being precise about, because it is easy to get wrong: api.data.gov issues the key
+    but does NOT proxy this API. Live responses from apps.fas.usda.gov carry none of the
+    api.data.gov gateway headers, and the "Bad API Key" body is FAS's own. So api.data.gov's
+    published default rate limits do not apply here, and neither do its rate-limit headers.
+  detail: authentication/foreign-agricultural-service-authentication.yml
+
+idempotency:
+  coverage: na
+  scope: []
+  mechanism: null
+  header: null
+  retention: null
+  note: >-
+    Not applicable, not missing. All 35 operations are GET and the contract declares no
+    request body on any of them, so every call is idempotent by HTTP semantics and there is
+    nothing for a replay-protection key to protect. NO `Idempotency` pointer is wired into
+    apis.yml: asserting one would claim a guarantee this provider has never made, on a surface
+    that cannot need it.
+
+dry_run_mode:
+  supported: na
+  note: >-
+    Nothing to rehearse. There is no operation whose effect a client would want to preview
+    before committing, because no operation has an effect.
+
+reversibility:
+  applicable: na
+  grade: na
+  write_surfaces: []
+  note: >-
+    The 15th agent-readiness dimension does not apply. Every one of the 35 operations is a GET
+    against public reference and trade data; there is no create, update, delete, order,
+    payment or submission an agent could take that would need taking back. No reversal
+    operation is named and no window is asserted, because no API write operation exists to
+    reverse. Recorded `na` rather than a zero: an absent undo path on a read-only open-data
+    API is correct design, not a gap.
+
+pagination:
+  style: none
+  params: []
+  response_fields: []
+  note: >-
+    No pagination of any kind exists in the contract — no limit, offset, cursor, page or
+    per_page parameter on any operation, and no envelope carrying next/prev links. Response
+    size is bounded by the path instead: a data request always names a commodity, and usually
+    a country or partner plus a market year or year/month. This is a deliberate slicing design
+    for reference data, but it has a consequence an agent should plan for — the broadest
+    operations (`.../allCountries/marketYear/{marketYear}`, `.../country/all/year/{marketYear}`)
+    return the whole slice in one response with no way to page or cap it.
+
+filtering_and_sorting:
+  supported: false
+  note: >-
+    Zero query parameters exist across the entire API. Every parameter on every operation is
+    `in: path`. There is no filter, no sort, no field selection and no sparse-fieldset
+    mechanism; the path IS the query.
+
+field_expansion:
+  supported: false
+  note: >-
+    No expand/include mechanism. Related entities are joined client-side by code: a data
+    response carries commodityCode, countryCode, regionCode and unitId values that the caller
+    resolves against the reference operations. See
+    data-model/foreign-agricultural-service-data-model.yml for the join graph.
+
+metadata:
+  supported: false
+  note: no user-supplied metadata surface; the API is read-only
+
+request_tracing:
+  request_id_header: null
+  note: >-
+    No request-id, correlation-id or trace header was observed on live responses (probed
+    2026-09-10). Response headers are limited to content-type, date, content-length,
+    strict-transport-security and x-content-type-options. A consumer reporting a problem to
+    the FAS Web Admin Team has no server-side identifier to quote.
+
+versioning:
+  style: document-versioned
+  current: v1
+  detail: lifecycle/foreign-agricultural-service-lifecycle.yml
+
+error_envelope:
+  consistent: false
+  shapes:
+    - status: 403
+      body: '"Bad API Key"'
+      shape: bare JSON string
+    - status: 500
+      body: '{"message":"An error has occurred."}'
+      shape: single-key object
+  note: >-
+    Two observed error responses, two different shapes, neither documented in the contract and
+    neither RFC 9457. A client cannot write one error parser. Full detail, including the 500-
+    on-bad-credential defect, in errors/foreign-agricultural-service-problem-types.yml.
+  detail: errors/foreign-agricultural-service-problem-types.yml
+
+rate_limit_signaling:
+  headers_observed: []
+  status_on_exhaustion: null
+  note: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header appeared on any live response, and no
+    limit is published anywhere. An agent has no runtime signal at all — it cannot see how
+    much budget it has left and cannot tell throttling apart from the generic 500.
+  detail: rate-limits/foreign-agricultural-service-rate-limits.yml
+
+transport_security:
+  https_only: true
+  hsts: 'strict-transport-security: max-age=31536000; includeSubdomains; preload'
+  x_content_type_options: nosniff
+  evidence: observed on live responses from apps.fas.usda.gov on 2026-09-10
+  detail: security/foreign-agricultural-service-domain-security.yml
+
+cross_links:
+  authentication: authentication/foreign-agricultural-service-authentication.yml
+  errors: errors/foreign-agricultural-service-problem-types.yml
+  lifecycle: lifecycle/foreign-agricultural-service-lifecycle.yml
+  rate_limits: rate-limits/foreign-agricultural-service-rate-limits.yml
+  data_model: data-model/foreign-agricultural-service-data-model.yml
+  conformance: conformance/foreign-agricultural-service-conformance.yml

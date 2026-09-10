@@ -1,0 +1,121 @@
+generated: '2026-09-10'
+method: probed
+source: live probes of the named /.well-known/ path list on every host this record knows
+note: >-
+  NO DOCUMENT WAS FOUND on any host, so this file records an absence and NO `WellKnown` or
+  `SecurityTxt` pointer is wired into apis.yml. Three hosts were probed: the FAS registrable
+  brand host (fas.usda.gov, which 302s to www.fas.usda.gov), the FAS web host
+  (www.fas.usda.gov) and the API/portal host (apps.fas.usda.gov). The parent department host
+  www.usda.gov was probed as well, because fas.usda.gov is a subdomain of usda.gov and a
+  department-level security.txt would legitimately cover it — it does not serve one either.
+  Two distinct edge behaviours were observed and are recorded per row rather than collapsed:
+  www.fas.usda.gov / www.usda.gov are fronted by Akamai, which returns 403 "Access Denied"
+  (edgesuite reference id) for every /.well-known/* path including the negative control, while
+  /llms.txt and /.well-known/security.txt reach the Drupal origin and return a real 404. The
+  API host apps.fas.usda.gov (ASP.NET) returns 500 for any /.well-known/* path — an unhandled
+  route, not a document. None of these is a served discovery document.
+hit_count: 0
+path_echo_control: passed
+soft_404_control:
+  path: /.well-known/fas-negative-control-bf067353.json
+  www.fas.usda.gov: 403 (Akamai Access Denied, 446 bytes — identical shape to every other blocked path)
+  www.usda.gov: 403 (Akamai Access Denied, 438 bytes)
+  apps.fas.usda.gov: 500 (119 bytes, ASP.NET error page — identical to every other /.well-known/* path)
+  verdict: no host answers 2xx on a path that cannot exist; no path-echoing and no catch-all 200s
+hosts:
+  - host: https://apps.fas.usda.gov
+    note: API host and developer portal host; basePath /OpenData serves the three data APIs
+    documents:
+      - path: /.well-known/security.txt
+        status: 500
+      - path: /.well-known/openid-configuration
+        status: 500
+      - path: /.well-known/oauth-authorization-server
+        status: 500
+      - path: /.well-known/oauth-protected-resource
+        status: 500
+      - path: /.well-known/api-catalog
+        status: 500
+      - path: /.well-known/ai-plugin.json
+        status: 500
+      - path: /.well-known/apis.json
+        status: 500
+      - path: /.well-known/aauth-resource.json
+        status: 500
+      - path: /.well-known/ucp.json
+        status: 500
+      - path: /.well-known/acp.json
+        status: 500
+      - path: /.well-known/agent-card.json
+        status: 500
+      - path: /.well-known/agent.json
+        status: 500
+      - path: /apis.json
+        status: 404
+      - path: /apis.yml
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: https://www.fas.usda.gov
+    note: >-
+      FAS public web host (Drupal behind Akamai). fas.usda.gov 302s here. Akamai blocks the
+      /.well-known/ prefix outright; the two paths that reach the origin return a real 404.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /llms.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+      - path: /.well-known/apis.json
+        status: 403
+      - path: /.well-known/aauth-resource.json
+        status: 403
+      - path: /.well-known/agent-card.json
+        status: 403
+      - path: /.well-known/agent.json
+        status: 403
+      - path: /apis.json
+        status: 403
+      - path: /apis.yml
+        status: 403
+  - host: https://www.usda.gov
+    note: >-
+      Parent department host, probed because fas.usda.gov is a usda.gov subdomain and a
+      department-level security.txt would cover the agency. It serves none — the origin
+      returns a real 404 for /.well-known/security.txt. Not credited to FAS either way.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /llms.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+      - path: /.well-known/apis.json
+        status: 403
+      - path: /.well-known/aauth-resource.json
+        status: 403
+      - path: /.well-known/agent-card.json
+        status: 403
+      - path: /.well-known/agent.json
+        status: 403
+      - path: /apis.json
+        status: 403
+      - path: /apis.yml
+        status: 403

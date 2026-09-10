@@ -1,8 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: USDA FAS Open Data Services ESR GATS API
   version: '1.0'
-  description: "Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural\nService (FAS) Open Data Services, derived from the public Swagger 2.0\ndocument at https://apps.fas.usda.gov/opendata/swagger/docs/v1 and the\nOpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.\nThe API exposes three datasets:\n  - ESR: U.S. weekly Export Sales of Agricultural Commodity Data\n  - GATS: Global Agricultural Trade System (Census and UN Trade)\n  - PSD: Production, Supply and Distribution\nAuthentication uses an `API_KEY` header issued via api.data.gov.\n"
+  description: "Best-effort OpenAPI 3.1 description of the USDA Foreign Agricultural\nService (FAS) Open\
+    \ Data Services, derived from the public Swagger 2.0\ndocument at https://apps.fas.usda.gov/opendata/swagger/docs/v1\
+    \ and the\nOpendataWeb portal at https://apps.fas.usda.gov/opendataweb/home.\nThe API exposes three\
+    \ datasets:\n  - ESR: U.S. weekly Export Sales of Agricultural Commodity Data\n  - GATS: Global Agricultural\
+    \ Trade System (Census and UN Trade)\n  - PSD: Production, Supply and Distribution\nAuthentication\
+    \ uses an `API_KEY` header issued via api.data.gov.\n"
   contact:
     name: USDA Foreign Agricultural Service
     url: https://www.fas.usda.gov/
@@ -23,6 +28,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCensusExportDataReleaseInfo
+      description: Returns a set of records with the date of the last release of Census Export Data. Use
+        this information to query for only those Census Export data records that have changed since last
+        invocation of this API End point
   /api/gats/census/data/imports/dataReleaseDates:
     get:
       tags:
@@ -31,6 +40,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCensusImportDataReleaseInfo
+      description: Returns a set of records with the date of the last release of Census Import Data. Use
+        this information to query for only the Census Import data that has changed since last invocation
+        of this API End point
   /api/gats/UNTrade/data/exports/dataReleaseDates:
     get:
       tags:
@@ -39,6 +52,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetUNTradeExportDataReleaseInfo
+      description: Returns a set of records with the date of the last release of UN Trade Export Data.
+        Use this information to query for only the UN Trade Export data that has changed since last invocation
+        of this API End point
   /api/gats/UNTrade/data/imports/dataReleaseDates:
     get:
       tags:
@@ -47,6 +64,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetUNTradeImportDataReleaseInfo
+      description: Returns a set of records with the date of the last release of UN Trade Import Data.
+        Use this information to query for only the UN Trade Import data that has changed since last invocation
+        of this API End point
   /api/gats/regions:
     get:
       tags:
@@ -55,6 +76,9 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetRegions
+      description: Returns a set of records with Region Codes and Region Names. Use it to associate Region
+        Name with Country records obtained by querying Country end point
   /api/gats/countries:
     get:
       tags:
@@ -63,6 +87,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCountries
+      description: Returns a set of records with Countries and their corresponding Regions Codes the Country
+        belongs to. Use records from Regions end point to get the names of the corresponding region in
+        Country records
   /api/gats/commodities:
     get:
       tags:
@@ -71,6 +99,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCommodities
+      description: Returns a set of records with Commodity Information. Commodity record contains HS10
+        Code and Census and FAS Unit Of Measure IDS. Please see UnitsOfMeasure end point for Units of
+        measure description.
   /api/gats/HS6Commodities:
     get:
       tags:
@@ -79,6 +111,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetHS6Commodities
+      description: Returns a list of Commodities classified at a broader level of classification, at the
+        HS6 Level, as opposed to HS10 Level. Use this to correlate the Import, Export and Re-export data
+        records obtained by querying UN Trade Data.
   /api/gats/unitsOfMeasure:
     get:
       tags:
@@ -87,6 +123,9 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetUnitsOfMeasure
+      description: Returns a set of records with Units of Measure. Use this to match against Units Of
+        Measure IDs in the Import and Export records to get the name of the Unit of Measure
   /api/gats/customsDistricts:
     get:
       tags:
@@ -95,6 +134,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCustomsDistricts
+      description: Returns a set of records with US Customs Districts, the point of Entry and Exit for
+        the Commodity Imports and Exports. For Ex, Total imports from China into USA could come in from
+        multiple US Customs Districts for a given year.
   /api/gats/censusImports/partnerCode/{partnerCode}/year/{year}/month/{month}:
     parameters:
     - $ref: '#/components/parameters/PartnerCode'
@@ -107,6 +150,11 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCensusImport
+      description: 'Given Partner Code (Ex: CH for China) and YearMonth (Ex: 201001 for Year 2010 Month
+        January) this API End point will return a list of records of Imports into USA as reported by US
+        Census Bureau for the given year month combination. Please see Countries end point to get a list
+        of all 2 character country codes'
   /api/gats/censusExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
     parameters:
     - $ref: '#/components/parameters/PartnerCode'
@@ -119,6 +167,12 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCensusExports
+      description: 'Given Partner Code (Ex: CH for China) and Year and Month (Ex: 2010 for Year 2010,
+        01 for January) this API End point will return a list of records of Exports out of USA as reported
+        by US Census Bureau for the given year month combination. Census reports data on a monthly basis
+        with corrections applied once a year. Please see Countries end point to get a list of all 2 character
+        country codes'
   /api/gats/censusReExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
     parameters:
     - $ref: '#/components/parameters/PartnerCode'
@@ -131,6 +185,12 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCensusReExports
+      description: 'Given Partner Code(Ex: CH for China) and Year and Month (Ex: 2010 for Year 2010, 01
+        for January) this API End point will return a list of records of Re-expors out of USA as reported
+        by US Census Bureau for the given year month combination. Census reports data on a monthly basis
+        with corrections applied once a year. Please see Countries end point to get a list of all 2 character
+        country codes'
   /api/gats/customsDistrictExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
     parameters:
     - $ref: '#/components/parameters/PartnerCode'
@@ -143,6 +203,13 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCustomsDistrictsExports
+      description: 'Given Partner Code(Ex: CH for China) and Year and Month (Ex: 2010 for Year 2010, 01
+        for January) this API End point will return a list of records of Exports from USA through US Customs
+        Districts as reported by US Census Bureau for the given year month combination. Census reports
+        data on a monthly basis with corrections applied once a year. Please see Countries end point to
+        get a list of all 2 character country codes, and CustomsDistricts end point for all US Customs
+        Districts'
   /api/gats/customsDistrictImports/partnerCode/{partnerCode}/year/{year}/month/{month}:
     parameters:
     - $ref: '#/components/parameters/PartnerCode'
@@ -155,6 +222,13 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCustomsDistrictsImports
+      description: 'Given Partner Code(Ex: CH for China) and Year and Month (Ex: 2010 for Year 2010, 01
+        for January) this API End point will return a list of records of Imports into USA through US Customs
+        Districts as reported by US Census Bureau for the given year month combination. Census reports
+        data on a monthly basis with corrections applied once a year. Please see Countries end point to
+        get a list of all 2 character country codes, and CustomsDistricts end point for all US Customs
+        Districts'
   /api/gats/customsDistrictReExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
     parameters:
     - $ref: '#/components/parameters/PartnerCode'
@@ -167,6 +241,14 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetCustomsDistrictsReExports
+      description: 'Given Partner Code(Ex: CH for China) and Year and Month (Ex: 2010 for Year 2010, 01
+        for January) this API End point will return a list of records of Re-Exports from USA through US
+        Customs Districts as reported by US Census Bureau for the given year month combination. Census
+        reports data on a monthly basis with corrections applied once a year. Please see Countries end
+        point to get a list of all 2 character country codes, and CustomsDistricts end point for all US
+        Customs Districts. Re-Exports are all imported commodities from few countries into USA, that are
+        ultimately exported out to other countries from USA'
   /api/gats/UNTradeImports/reporterCode/{reporterCode}/year/{year}:
     parameters:
     - $ref: '#/components/parameters/ReporterCode'
@@ -178,6 +260,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetUNTradeImports
+      description: Given Reporter Code (Ex IN for India), and Import Year (for ex, 2010), this API End
+        point returns a list of records of Commodity Import data as reported by UN COMTrade for a given
+        year. UN COMTrade reports data on a yearly basis at a HS6 Code Level.
   /api/gats/UNTradeExports/reporterCode/{reporterCode}/year/{year}:
     parameters:
     - $ref: '#/components/parameters/ReporterCode'
@@ -189,6 +275,10 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetUNTradeExports
+      description: Given Reporter Code (Ex IN for India), and Export Year (for ex, 2010), this API End
+        point returns a list of records of Commodity Export data as reported by UN COMTrade for a given
+        year. UN COMTrade reports data on a yearly basis at a HS6 Code Level.
   /api/gats/UNTradeReExports/reporterCode/{reporterCode}/year/{year}:
     parameters:
     - $ref: '#/components/parameters/ReporterCode'
@@ -200,7 +290,38 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Json'
+      operationId: GATSData_GetUNTradeReExports
+      description: Given Reporter Code (Ex IN for India), and Export Year (for ex, 2010), this API End
+        point returns a list of records of Commodity Re-Export data as reported by UN COMTrade for a given
+        year. UN COMTrade reports data on a yearly basis at a HS6 Code Level.
 components:
+  parameters:
+    PartnerCode:
+      name: partnerCode
+      in: path
+      required: true
+      schema:
+        type: string
+    ReporterCode:
+      name: reporterCode
+      in: path
+      required: true
+      schema:
+        type: string
+    Year:
+      name: year
+      in: path
+      required: true
+      schema:
+        type: integer
+    Month:
+      name: month
+      in: path
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 12
   responses:
     Json:
       description: JSON response
@@ -211,33 +332,6 @@ components:
             items:
               type: object
               additionalProperties: true
-  parameters:
-    ReporterCode:
-      name: reporterCode
-      in: path
-      required: true
-      schema:
-        type: string
-    Month:
-      name: month
-      in: path
-      required: true
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 12
-    Year:
-      name: year
-      in: path
-      required: true
-      schema:
-        type: integer
-    PartnerCode:
-      name: partnerCode
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     apiKey:
       type: apiKey

@@ -1,0 +1,171 @@
+generated: '2026-09-10'
+method: derived
+source: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json
+note: >-
+  DERIVED FROM PATHS AND PARAMETERS, NOT FROM SCHEMAS — and that distinction is the finding.
+  The provider's Swagger declares `definitions: {}` (zero named schemas) and types every one
+  of its 35 responses as `schema: {type: object}`. There is no $ref anywhere in the contract,
+  so there is no schema graph to walk. What CAN be derived honestly is the entity graph the
+  API's own URL structure and its 37 path parameters describe: seven code-typed identifiers
+  (commodityCode, countryCode, partnerCode, reporterCode, marketYear, year, month) that the
+  reference operations define and the data operations join on. Field names inside response
+  bodies are NOT recorded here, because they were never fetched — API Evangelist holds no FAS
+  API key — and guessing them is the exact fabrication this pipeline forbids.
+contract_gap:
+  named_schemas: 0
+  refs: 0
+  operations_typed_as_bare_object: 35
+  consequence: >-
+    Every response is an untyped `object`. A code generator produces nothing usable, an agent
+    cannot know a field exists before it sees one, and no validation is possible. This is the
+    single largest contract-quality gap in this provider's surface, and it is a gap in the
+    provider's document — nothing in this repository can close it without inventing data.
+entities:
+  - name: Commodity
+    identifier: commodityCode
+    type: integer (ESR, PSD) / HS code (GATS)
+    defined_by:
+      - ESRData_GetCommodities
+      - GATSData_GetCommodities
+      - GATSData_GetHS6Commodities
+      - PSDData_GetCommodities
+    note: >-
+      Three different commodity vocabularies live under one name. ESR and PSD use FAS
+      commodity codes (the contract's example is "104 for Wheat - White"); GATS
+      /api/gats/commodities carries HS10 codes plus Census and FAS unit-of-measure ids; GATS
+      /api/gats/HS6Commodities carries the broader HS6 level used to correlate UN ComTrade
+      records. They are NOT interchangeable and the contract does not say so.
+  - name: Country
+    identifier: countryCode
+    type: integer
+    defined_by: [ESRData_GetCountries, PSDData_GetCountries]
+    note: 'contract example: "1220 for Canada" — a FAS country code, not ISO 3166'
+  - name: Partner
+    identifier: partnerCode
+    type: integer
+    defined_by: [GATSData_GetCountries]
+    note: the trading-partner dimension of US Census trade flows
+  - name: Reporter
+    identifier: reporterCode
+    type: string
+    defined_by: [GATSData_GetCountries]
+    note: 'UN ComTrade reporter coding — contract example: "IN for India". Alphabetic, unlike partnerCode'
+  - name: Region
+    identifier: regionCode
+    defined_by: [ESRData_GetRegions, GATSData_GetRegions, PSDData_GetRegions]
+    note: >-
+      Groups countries. Never appears as a path parameter — it is a join key inside country
+      records, per ESRData_GetRegions: "Use it to associate Region Name with Country records
+      obtained by querying Country end point".
+  - name: UnitOfMeasure
+    identifier: unitId
+    defined_by: [ESRData_GetUnitsOfMeasure, GATSData_GetUnitsOfMeasure, PSDData_GetUnitsOfMeasure]
+    note: >-
+      GATS commodity records carry both a Census and a FAS unit-of-measure id, per the
+      GATSData_GetCommodities summary — two unit vocabularies on one record.
+  - name: CustomsDistrict
+    identifier: district code
+    defined_by: [GATSData_GetCustomsDistricts]
+    note: 'US point of entry/exit; per the contract, one partner''s trade may arrive through several districts in a year'
+  - name: CommodityAttribute
+    identifier: attributeId
+    defined_by: [PSDData_GetCommodityAttributes]
+    note: >-
+      PSD-only. Names the measures (production, exports, ending stocks and the rest) that PSD
+      forecast records report by id; resolve the id here to label a forecast row.
+  - name: DataRelease
+    identifier: (commodity, market year) or (year, month)
+    defined_by:
+      - ESRData_GetDataReleaseInfo
+      - PSDData_GetDataReleaseInfo
+      - GATSData_GetCensusExportDataReleaseInfo
+      - GATSData_GetCensusImportDataReleaseInfo
+      - GATSData_GetUNTradeExportDataReleaseInfo
+      - GATSData_GetUNTradeImportDataReleaseInfo
+    note: >-
+      The availability calendar. Six operations exist so a client can discover which slices
+      are populated — and populated data is revisable, per ESRData_GetDataReleaseInfo: "there
+      could be revision on the Export numbers for multiple years on a given commodity".
+  - name: ExportSalesRecord
+    dataset: ESR
+    keyed_by: [commodityCode, countryCode, marketYear]
+    produced_by: [ESRData_GetAllCountriesData, ESRData_GetCountryData]
+  - name: TradeFlowRecord
+    dataset: GATS
+    keyed_by: ['partnerCode | reporterCode', 'year', 'month (Census flows only)']
+    produced_by:
+      - GATSData_GetCensusExports
+      - GATSData_GetCensusImport
+      - GATSData_GetCensusReExports
+      - GATSData_GetCustomsDistrictsExports
+      - GATSData_GetCustomsDistrictsImports
+      - GATSData_GetCustomsDistrictsReExports
+      - GATSData_GetUNTradeExports
+      - GATSData_GetUNTradeImports
+      - GATSData_GetUNTradeReExports
+    note: 'Census flows are monthly and take {partnerCode}/{year}/{month}; UN ComTrade flows are annual and take {reporterCode}/{year}'
+  - name: ProductionForecastRecord
+    dataset: PSD
+    keyed_by: ['commodityCode', 'countryCode | world | all', 'marketYear', 'attributeId']
+    produced_by:
+      - PSDData_GetCommodityDataByYear
+      - PSDData_GetCountryCommodityDataByYear
+      - PSDData_GetWorldCommodityDataByYear
+relationships:
+  - from: ExportSalesRecord
+    to: Commodity
+    kind: belongs_to
+    via: commodityCode
+  - from: ExportSalesRecord
+    to: Country
+    kind: belongs_to
+    via: countryCode
+  - from: Country
+    to: Region
+    kind: belongs_to
+    via: regionCode
+  - from: TradeFlowRecord
+    to: Partner
+    kind: belongs_to
+    via: partnerCode
+  - from: TradeFlowRecord
+    to: Reporter
+    kind: belongs_to
+    via: reporterCode
+  - from: TradeFlowRecord
+    to: CustomsDistrict
+    kind: belongs_to
+    via: district code
+    note: only on the three customsDistrict* operations
+  - from: TradeFlowRecord
+    to: Commodity
+    kind: belongs_to
+    via: HS code (HS10 for Census, HS6 for UN ComTrade)
+  - from: ProductionForecastRecord
+    to: Commodity
+    kind: belongs_to
+    via: commodityCode
+  - from: ProductionForecastRecord
+    to: CommodityAttribute
+    kind: belongs_to
+    via: attributeId
+  - from: ProductionForecastRecord
+    to: Country
+    kind: belongs_to
+    via: countryCode
+  - from: Commodity
+    to: UnitOfMeasure
+    kind: has_one
+    via: unitId
+    note: GATS commodity records carry two — a Census unit id and a FAS unit id
+  - from: DataRelease
+    to: Commodity
+    kind: belongs_to
+    via: commodityCode
+integration_note: >-
+  The three datasets do not share a key. A question that spans them — "what did the US sell
+  into a market that its own production forecast said would be short?" — requires the consumer
+  to build a crosswalk between FAS commodity codes (ESR/PSD), HS10 (GATS Census) and HS6 (GATS
+  UN ComTrade), and between FAS country codes, Census partner codes and UN ComTrade reporter
+  codes. The API publishes each vocabulary but no mapping between them, and that missing
+  crosswalk is the main integration cost of this surface.

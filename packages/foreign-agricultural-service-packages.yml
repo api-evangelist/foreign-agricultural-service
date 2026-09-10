@@ -1,0 +1,61 @@
+generated: '2026-09-10'
+method: searched
+source: >-
+  registry.npmjs.org search + registry metadata, pypi.org/pypi/<name>/json, rubygems.org
+  search API, crates.io search API, and the FAS OpendataWeb portal bundle
+  (apps.fas.usda.gov/opendatawebV2/main.*.js) read for any SDK/download link
+official_package_count: 0
+note: >-
+  USDA FAS publishes NO first-party client library in any public registry. The OpendataWeb
+  portal ships only the Angular single-page app and a Swagger UI; it links no SDK, no download
+  and no sample-code repository. Every registry below was queried directly and the result is
+  recorded rather than assumed. The API is a plain HTTPS/JSON surface with one header
+  (API_KEY), so a client library is a convenience rather than a requirement — but its absence
+  is the finding, and NO `SDKs` pointer is wired into apis.yml because there is no official
+  SDK for the `sdk_count` checks to count.
+registries_checked:
+  - registry: npm
+    query: https://registry.npmjs.org/-/v1/search?text=usda-fas / fas-usda / "usda foreign agricultural"
+    first_party_result: none
+  - registry: PyPI
+    query: pypi.org/pypi/{usda-fas,fas-api,usda-esr,psd-api,usdafas}/json
+    first_party_result: none (404 on every candidate)
+  - registry: RubyGems
+    query: rubygems.org/api/v1/search.json?query=usda
+    first_party_result: none (only third-party nutrition/FoodData Central gems)
+  - registry: crates.io
+    query: crates.io/api/v1/crates?q=usda
+    first_party_result: none
+  - registry: pkg.go.dev / Maven Central / NuGet / Packagist
+    first_party_result: none — no USDA FAS namespace exists on any of them
+packages: []
+third_party:
+  note: >-
+    Recorded for completeness and explicitly NOT credited to FAS. These are community projects
+    that wrap the public FAS Open Data Services; none is published, endorsed or maintained by
+    USDA. They are listed because a consumer evaluating this API will meet them, and because a
+    community wrapper existing while the provider ships none is itself a signal.
+  packages:
+    - language: javascript
+      registry: npm
+      name: "@pipeworx/mcp-fas"
+      url: https://www.npmjs.com/package/@pipeworx/mcp-fas
+      repository: https://github.com/pipeworx-io/mcp-fas
+      description: "FAS MCP — USDA Foreign Agricultural Service (trade & global production data)"
+      version: 0.1.0
+      published: '2026-04-15'
+      official: false
+      publisher: pipeworx-io (npm maintainer "mojibake-ai") — not USDA
+    - language: python
+      registry: none
+      name: usda-fas-sdk
+      url: https://github.com/chhayly/usda-fas-sdk
+      description: Community Python wrapper for the USDA FAS Open Data Services; source only, never published to PyPI
+      version: null
+      published: '2026-05-10'
+      official: false
+      publisher: chhayly (individual GitHub account) — not USDA
+      note: >-
+        version is null because the project has no registry release — it exists only as a
+        GitHub repository, so a consumer cannot pin a version. `published` is the last push
+        date to the default branch, not a release date.

@@ -13,6 +13,11 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "foreign-agricultural-service-esr-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "foreign-agricultural-service-gats-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "foreign-agricultural-service-psd-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

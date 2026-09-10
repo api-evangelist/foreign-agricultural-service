@@ -1,0 +1,59 @@
+generated: '2026-09-10'
+method: generated
+source: openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json
+note: >-
+  Three packaged Agent Skills, one per FAS dataset, mirroring how the API is actually
+  organised. Every operationId referenced was grepped out of the provider's own harvested
+  Swagger 2.0 — none is invented. The provider publishes no skills, no AGENTS.md and no
+  agent guidance of its own; searched 2026-09-10.
+skills:
+  - file: foreign-agricultural-service-track-weekly-export-sales.md
+    name: Track weekly US export sales for a commodity
+    api: openapi/foreign-agricultural-service-esr-api-openapi.yml
+    dataset: ESR
+    operations:
+      - ESRData_GetCommodities
+      - ESRData_GetCountries
+      - ESRData_GetRegions
+      - ESRData_GetUnitsOfMeasure
+      - ESRData_GetDataReleaseInfo
+      - ESRData_GetAllCountriesData
+      - ESRData_GetCountryData
+  - file: foreign-agricultural-service-query-global-trade-flows.md
+    name: Query global agricultural trade flows (GATS)
+    api: openapi/foreign-agricultural-service-gats-api-openapi.yml
+    dataset: GATS
+    operations:
+      - GATSData_GetCountries
+      - GATSData_GetRegions
+      - GATSData_GetCommodities
+      - GATSData_GetHS6Commodities
+      - GATSData_GetUnitsOfMeasure
+      - GATSData_GetCustomsDistricts
+      - GATSData_GetCensusExportDataReleaseInfo
+      - GATSData_GetCensusImportDataReleaseInfo
+      - GATSData_GetUNTradeExportDataReleaseInfo
+      - GATSData_GetUNTradeImportDataReleaseInfo
+      - GATSData_GetCensusExports
+      - GATSData_GetCensusImport
+      - GATSData_GetCensusReExports
+      - GATSData_GetCustomsDistrictsExports
+      - GATSData_GetCustomsDistrictsImports
+      - GATSData_GetCustomsDistrictsReExports
+      - GATSData_GetUNTradeExports
+      - GATSData_GetUNTradeImports
+      - GATSData_GetUNTradeReExports
+  - file: foreign-agricultural-service-read-psd-forecasts.md
+    name: Read world production and supply forecasts (PSD)
+    api: openapi/foreign-agricultural-service-psd-api-openapi.yml
+    dataset: PSD
+    operations:
+      - PSDData_GetCommodities
+      - PSDData_GetCommodityAttributes
+      - PSDData_GetCountries
+      - PSDData_GetRegions
+      - PSDData_GetUnitsOfMeasure
+      - PSDData_GetDataReleaseInfo
+      - PSDData_GetWorldCommodityDataByYear
+      - PSDData_GetCommodityDataByYear
+      - PSDData_GetCountryCommodityDataByYear

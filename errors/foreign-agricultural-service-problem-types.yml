@@ -1,0 +1,76 @@
+generated: '2026-09-10'
+method: probed
+source: >-
+  live unauthenticated probes of https://apps.fas.usda.gov/OpenData/api/esr/regions on
+  2026-09-10, plus openapi/_original/foreign-agricultural-service-fas-open-data-swagger.json
+format: none
+format_note: >-
+  NOT rfc9457. The API returns no application/problem+json and no type/title/status/detail
+  members. Two distinct error shapes were observed and they are not even consistent with each
+  other: one is a bare JSON string, the other a single-key object. An agent cannot branch on a
+  machine-readable error code because none is emitted.
+contract_gap: >-
+  The provider's own Swagger declares exactly ONE response per operation — 200 "OK" with
+  schema {type: object} — on all 35 operations. There is no 4xx or 5xx documented anywhere in
+  the contract, so nothing in this catalog is derived from the spec; every entry below was
+  observed on the wire and is labelled with the request that produced it.
+problems:
+  - status: 403
+    title: Bad API Key
+    observed_body: '"Bad API Key"'
+    media_type: application/json; charset=utf-8
+    envelope: bare JSON string (not an object)
+    trigger: request sent with no API_KEY header
+    evidence:
+      request: GET https://apps.fas.usda.gov/OpenData/api/esr/regions
+      date: '2026-09-10'
+      content_length: 13
+    remediation: >-
+      Send the API_KEY request header on every call. Request a key from
+      https://apps.fas.usda.gov/opendatawebv2/#/signup.
+    agent_note: >-
+      Retrying this is pointless — it is a permanent client fault until a key is attached.
+      Parse defensively: the body is a JSON string, so `response.json()["message"]` raises.
+  - status: 500
+    title: An error has occurred.
+    observed_body: '{"message":"An error has occurred."}'
+    media_type: application/json; charset=utf-8
+    envelope: '{ message: string }'
+    trigger: request sent with a syntactically invalid API_KEY header value
+    evidence:
+      request: 'GET https://apps.fas.usda.gov/OpenData/api/esr/regions with header API_KEY: NOT_A_REAL_KEY'
+      date: '2026-09-10'
+      content_length: 36
+    remediation: Supply a valid key. There is no way for a client to distinguish this from a genuine server fault.
+    defect_note: >-
+      This is a real defect, recorded as observed rather than smoothed over. An invalid
+      credential is a 401/403 condition; returning 500 tells every well-behaved client and
+      retry library to treat a permanent auth failure as a transient server error and back
+      off and retry it. The generic ASP.NET "An error has occurred." message is the framework
+      default, which also means a genuine upstream fault is indistinguishable from a bad key.
+unmapped_conditions:
+  note: >-
+    Conditions a consumer will meet that have NO documented or observed error contract. Listed
+    so an agent knows it is flying blind, not so the gap looks smaller than it is.
+    Not probed with a valid key — API Evangelist holds no FAS API key and does not obtain
+    credentials (see the repository provenance block), so the authenticated error surface is
+    unmeasured.
+  conditions:
+    - condition: unknown commodityCode / countryCode / partnerCode / reporterCode
+      documented: false
+    - condition: market year or month with no released data
+      documented: false
+      hint: >-
+        The contract's own workaround is the release-date operations — ESRData_GetDataReleaseInfo,
+        PSDData_GetDataReleaseInfo, and the four GATS *DataReleaseInfo operations exist
+        specifically so a client can find out what is populated before asking for it.
+    - condition: rate limit or quota exhaustion
+      documented: false
+      hint: 'no 429 is documented and no RateLimit-* header was observed on any response'
+    - condition: planned maintenance window
+      documented: false
+      hint: >-
+        The portal HTML carries a hidden maintenance banner div
+        (apps.fas.usda.gov/opendatawebV2/, display:none) that FAS un-hides for outages. It is
+        an HTML notice on the portal, not an API signal — there is no status endpoint and no
+        Retry-After.
