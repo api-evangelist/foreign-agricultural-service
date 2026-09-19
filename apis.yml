@@ -73,7 +73,8 @@ apis:
     commodity data.
   humanURL: https://apps.fas.usda.gov/opendataweb/home
   baseURL: https://apps.fas.usda.gov/OpenData
-  tags:
+  tags: []
+  tags_raw:
   - ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data
   properties:
   - type: OpenAPI
@@ -94,7 +95,8 @@ apis:
     data.
   humanURL: https://apps.fas.usda.gov/opendataweb/home
   baseURL: https://apps.fas.usda.gov/OpenData
-  tags:
+  tags: []
+  tags_raw:
   - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
   properties:
   - type: OpenAPI
