@@ -1,0 +1,208 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: FAS Open Data Services ESR Data API - United States Weekly…
+  description: ESR, GATS and PSD Data APIs
+servers:
+- url: https://apps.fas.usda.gov/OpenData
+tags:
+- name: ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data
+paths:
+  /api/esr/regions:
+    get:
+      tags:
+      - ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data
+      summary: Returns a set of records with Region Codes and Region Names.
+      operationId: ESRData_GetRegions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/esr/countries:
+    get:
+      tags:
+      - ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data
+      summary: Returns a set of records with Countries and their corresponding Regions Codes…
+      operationId: ESRData_GetCountries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/esr/commodities:
+    get:
+      tags:
+      - ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data
+      summary: Returns a set of records with Commodity Information.
+      operationId: ESRData_GetCommodities
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/esr/unitsOfMeasure:
+    get:
+      tags:
+      - ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data
+      summary: Returns a set of records with Units of Measure Information.
+      operationId: ESRData_GetUnitsOfMeasure
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/esr/datareleasedates:
+    get:
+      tags:
+      - ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data
+      summary: Returns a set of records with the date of the last release of ESR Commodity…
+      operationId: ESRData_GetDataReleaseInfo
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/esr/exports/commodityCode/{commodityCode}/allCountries/marketYear/{marketYear}:
+    get:
+      tags:
+      - ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data
+      summary: 'Given Commodity Code (Ex: 104 for Wheat - White ) and MarketYear (Ex: 2017)…'
+      operationId: ESRData_GetAllCountriesData
+      parameters:
+      - name: commodityCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: marketYear
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/esr/exports/commodityCode/{commodityCode}/countryCode/{countryCode}/marketYear/{marketYear}:
+    get:
+      tags:
+      - ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data
+      summary: 'Given Commodity Code (Ex: 104 for Wheat - White ), Country Code (Ex:1220 for…'
+      operationId: ESRData_GetCountryData
+      parameters:
+      - name: commodityCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: countryCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: marketYear
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: API Key Authentication
+      name: API_KEY
+      in: header

@@ -1,0 +1,269 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: FAS Open Data Services PSD Data API - Production, Supply…
+  description: ESR, GATS and PSD Data APIs
+servers:
+- url: https://apps.fas.usda.gov/OpenData
+tags:
+- name: PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities
+paths:
+  /api/psd/commodity/{commodityCode}/dataReleaseDates:
+    get:
+      tags:
+      - PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities
+      summary: Returns a set of records with the date of the last release of PSD Commodity…
+      operationId: PSDData_GetDataReleaseInfo
+      parameters:
+      - name: commodityCode
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/psd/commodity/{commodityCode}/country/all/year/{marketYear}:
+    get:
+      tags:
+      - PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities
+      summary: Returns a set of records with Forecast number for a given Commodity Code (Ex…
+      operationId: PSDData_GetCommodityDataByYear
+      parameters:
+      - name: commodityCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: marketYear
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/psd/commodity/{commodityCode}/country/{countryCode}/year/{marketYear}:
+    get:
+      tags:
+      - PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities
+      summary: Returns a set of records with Forecast number for a given Commodity Code (Ex…
+      operationId: PSDData_GetCountryCommodityDataByYear
+      parameters:
+      - name: commodityCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: countryCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: marketYear
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/psd/commodity/{commodityCode}/world/year/{marketYear}:
+    get:
+      tags:
+      - PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities
+      summary: Returns a set of records with Forecast number for a given Commodity Code (Ex…
+      operationId: PSDData_GetWorldCommodityDataByYear
+      parameters:
+      - name: commodityCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: marketYear
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/psd/regions:
+    get:
+      tags:
+      - PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities
+      summary: Returns a set of records with data for the Regions as classified in PSD System.
+      operationId: PSDData_GetRegions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/psd/countries:
+    get:
+      tags:
+      - PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities
+      summary: Returns a set of records with data for Countries and the corresponding Region…
+      operationId: PSDData_GetCountries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/psd/commodities:
+    get:
+      tags:
+      - PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities
+      summary: Returns a set of records with data for Commodities with the corresponding…
+      operationId: PSDData_GetCommodities
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/psd/unitsOfMeasure:
+    get:
+      tags:
+      - PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities
+      summary: Returns a set of records with data for Units Of Measure with the corresponding…
+      operationId: PSDData_GetUnitsOfMeasure
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/psd/commodityAttributes:
+    get:
+      tags:
+      - PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities
+      summary: Returns a set of records with data for Commodity Attribute Names with the…
+      operationId: PSDData_GetCommodityAttributes
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: API Key Authentication
+      name: API_KEY
+      in: header

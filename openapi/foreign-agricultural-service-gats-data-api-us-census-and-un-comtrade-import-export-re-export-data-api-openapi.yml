@@ -1,0 +1,600 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: FAS Open Data Services GATS Data API - US Census and UN…
+  description: ESR, GATS and PSD Data APIs
+servers:
+- url: https://apps.fas.usda.gov/OpenData
+tags:
+- name: GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+paths:
+  /api/gats/census/data/exports/dataReleaseDates:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Returns a set of records with the date of the last release of Census Export…
+      operationId: GATSData_GetCensusExportDataReleaseInfo
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/census/data/imports/dataReleaseDates:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Returns a set of records with the date of the last release of Census Import…
+      operationId: GATSData_GetCensusImportDataReleaseInfo
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/UNTrade/data/exports/dataReleaseDates:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Returns a set of records with the date of the last release of UN Trade Export…
+      operationId: GATSData_GetUNTradeExportDataReleaseInfo
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/UNTrade/data/imports/dataReleaseDates:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Returns a set of records with the date of the last release of UN Trade Import…
+      operationId: GATSData_GetUNTradeImportDataReleaseInfo
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/regions:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Returns a set of records with Region Codes and Region Names.
+      operationId: GATSData_GetRegions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/countries:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Returns a set of records with Countries and their corresponding Regions Codes…
+      operationId: GATSData_GetCountries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/commodities:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Returns a set of records with Commodity Information.
+      operationId: GATSData_GetCommodities
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/HS6Commodities:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Returns a list of Commodities classified at a broader level of classification…
+      operationId: GATSData_GetHS6Commodities
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/unitsOfMeasure:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Returns a set of records with Units of Measure.
+      operationId: GATSData_GetUnitsOfMeasure
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/customsDistricts:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Returns a set of records with US Customs Districts, the point of Entry and Exit…
+      operationId: GATSData_GetCustomsDistricts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/censusImports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: 'Given Partner Code (Ex: CH for China) and YearMonth (Ex: 201001 for Year 2010…'
+      operationId: GATSData_GetCensusImport
+      parameters:
+      - name: partnerCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: month
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/censusExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: 'Given Partner Code (Ex: CH for China) and Year and Month (Ex: 2010 for Year…'
+      operationId: GATSData_GetCensusExports
+      parameters:
+      - name: partnerCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: month
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/censusReExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: 'Given Partner Code(Ex: CH for China) and Year and Month (Ex: 2010 for Year…'
+      operationId: GATSData_GetCensusReExports
+      parameters:
+      - name: partnerCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: month
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/customsDistrictExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: 'Given Partner Code(Ex: CH for China) and Year and Month (Ex: 2010 for Year…'
+      operationId: GATSData_GetCustomsDistrictsExports
+      parameters:
+      - name: partnerCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: month
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/customsDistrictImports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: 'Given Partner Code(Ex: CH for China) and Year and Month (Ex: 2010 for Year…'
+      operationId: GATSData_GetCustomsDistrictsImports
+      parameters:
+      - name: partnerCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: month
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/customsDistrictReExports/partnerCode/{partnerCode}/year/{year}/month/{month}:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: 'Given Partner Code(Ex: CH for China) and Year and Month (Ex: 2010 for Year…'
+      operationId: GATSData_GetCustomsDistrictsReExports
+      parameters:
+      - name: partnerCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: month
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/UNTradeImports/reporterCode/{reporterCode}/year/{year}:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Given Reporter Code (Ex IN for India), and Import Year (for ex, 2010), this API…
+      operationId: GATSData_GetUNTradeImports
+      parameters:
+      - name: reporterCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/UNTradeExports/reporterCode/{reporterCode}/year/{year}:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Given Reporter Code (Ex IN for India), and Export Year (for ex, 2010), this API…
+      operationId: GATSData_GetUNTradeExports
+      parameters:
+      - name: reporterCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+  /api/gats/UNTradeReExports/reporterCode/{reporterCode}/year/{year}:
+    get:
+      tags:
+      - GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data
+      summary: Given Reporter Code (Ex IN for India), and Export Year (for ex, 2010), this API…
+      operationId: GATSData_GetUNTradeReExports
+      parameters:
+      - name: reporterCode
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      - name: year
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: API Key Authentication
+      name: API_KEY
+      in: header

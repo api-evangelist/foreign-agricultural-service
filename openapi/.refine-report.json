@@ -1,23 +1,29 @@
 {
   "provider": "foreign-agricultural-service",
   "sources": [
-    "foreign-agricultural-service-esr-api-openapi.yml",
-    "foreign-agricultural-service-gats-api-openapi.yml",
-    "foreign-agricultural-service-psd-api-openapi.yml"
+    "_original/foreign-agricultural-service-fas-open-data-swagger.json"
   ],
   "outputs": [
-    "foreign-agricultural-service-esr-api-openapi.yml",
-    "foreign-agricultural-service-gats-api-openapi.yml",
-    "foreign-agricultural-service-psd-api-openapi.yml"
+    "foreign-agricultural-service-esr-data-api-united-states-weekly-export-sales-of-agricultural-commodity-data-api-openapi.yml",
+    "foreign-agricultural-service-gats-data-api-us-census-and-un-comtrade-import-export-re-export-data-api-openapi.yml",
+    "foreign-agricultural-service-psd-data-api-production-supply-and-distribution-forecast-data-of-world-agricultural-commodities-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "foreign-agricultural-service-esr-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "foreign-agricultural-service-gats-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "foreign-agricultural-service-psd-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "foreign-agricultural-service-fas-open-data-swagger.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "foreign-agricultural-service-fas-open-data-swagger.json: declared missing tag: ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data",
+    "foreign-agricultural-service-fas-open-data-swagger.json: declared missing tag: GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data",
+    "foreign-agricultural-service-fas-open-data-swagger.json: declared missing tag: PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "_original/foreign-agricultural-service-openapi.yml: archived document superseded by a larger archived document",
+    "foreign-agricultural-service-esr-data-api-united-states-weekly-export-sales-of-agricultural-commodity-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "foreign-agricultural-service-gats-data-api-us-census-and-un-comtrade-import-export-re-export-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "foreign-agricultural-service-psd-data-api-production-supply-and-distribution-forecast-data-of-world-agricultural-commodities-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
