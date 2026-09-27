@@ -44,7 +44,7 @@ modified: '2026-09-10'
 position: Consuming
 tags:
   - Agriculture
-  - Federal-Government
+  - Federal Government
   - Trade
   - Open Data
   - Commodities
@@ -58,6 +58,7 @@ tags_raw:
   - Commodities
   - Exports
   - Government
+  - Federal-Government
 url: >-
   https://raw.githubusercontent.com/api-evangelist/foreign-agricultural-service/refs/heads/main/apis.yml
 specificationVersion: '0.23'
