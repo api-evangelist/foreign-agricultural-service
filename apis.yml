@@ -130,6 +130,8 @@ apis:
   - type: APIReference
     url: https://apps.fas.usda.gov/opendata/swagger/ui/index
 common:
+  - type: Pricing
+    url: https://apps.fas.usda.gov/opendataweb/home
   - type: Overlay
     url: overlays/foreign-agricultural-service-esr-api-overlay.yaml
   - type: Overlay
