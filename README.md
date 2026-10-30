@@ -1,4 +1,4 @@
-# Foreign Agricultural Service (foreign-agricultural-service)
+# Foreign Agricultural Service
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,53 +64,142 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The Foreign Agricultural Service (FAS) is a branch of the United States Department of Agriculture (USDA) that works to promote U.S. agricultural exports and expand global markets for American agricultural products.
+The Foreign Agricultural Service (FAS) is the trade and export agency of the United States Department of Agriculture (USDA), working to promote U.S. agricultural exports and expand global markets for American agricultural products. FAS runs the Open Data Services at apps.fas.usda.gov, a free, key-gated HTTPS/JSON API publishing three datasets on U.S. and world agricultural trade: ESR (Export Sales Reporting — weekly U.S. export sales by commodity, destination and market year), GATS (the Global Agricultural Trade System — U.S. Census and UN ComTrade import, export and re-export flows, including trade by U.S. customs district), and PSD (Production, Supply and Distribution — world commodity production, supply and use forecasts). The surface is 35 read-only GET operations behind a single API_KEY header, described by a live Swagger 2.0 contract and rendered in Swagger UI.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/foreign-agricultural-service/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/foreign-agricultural-service/refs/heads/main/apis.yml)
+**Areas:** Agriculture · Federal Government · Trade · Open Data · Commodities · Export · Government
 
-## Scope
+## Foreign Agricultural Service on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Foreign Agricultural Service is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/foreign-agricultural-service/](https://apis.io/providers/foreign-agricultural-service/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Agriculture
-- Federal Government
+- [Foreign Agricultural Service ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data API](https://apis.io/apis/foreign-agricultural-service/foreign-agricultural-service-esr-data-api-united-states-weekly-export-sales-of-agricultural-commodity-data-api/) — The ESR Data API - United States Weekly Export Sales of Agricultural Commodity Data API from Foreign Agricultural Service — 7 operation(s) for esr data api…
+- [Foreign Agricultural Service GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data API](https://apis.io/apis/foreign-agricultural-service/foreign-agricultural-service-gats-data-api-us-census-and-un-comtrade-import-export-re-export-data-api/) — The GATS Data API - US Census and UN ComTrade Import Export & Re-Export Data API from Foreign Agricultural Service — 19 operation(s) for gats data api - us…
+- [Foreign Agricultural Service PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities API](https://apis.io/apis/foreign-agricultural-service/foreign-agricultural-service-psd-data-api-production-supply-and-distribution-forecast-data-of-world-agricultural-commodities-api/) — The PSD Data API - Production, Supply and Distribution Forecast Data of World Agricultural Commodities API from Foreign Agricultural Service — 9…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-12-25
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### USDA FAS Open Data API
+Model Context Protocol servers that expose the API to agents.
 
-The USDA Foreign Agricultural Service Open Data API provides programmatic access to U.S. agricultural trade data, including the Global Agricultural Trade System (GATS), Export Sales Reporting (ESR), and Production, Supply and Distribution (PSD) Online datasets.
+- [usda-fas-open-data](https://apis.io/servers/foreign-agricultural-service/usda-fas-open-data/)
 
-- **Human URL:** [https://apps.fas.usda.gov/opendataweb/home](https://apps.fas.usda.gov/opendataweb/home)
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Agriculture
-- Trade
-- Federal Government
-- Open Data
+- [Foreign Agricultural Service Agentic Access](https://apis.io/agentic-access/foreign-agricultural-service/foreign-agricultural-service-agentic-access/)
 
-#### Properties
+#### Collections (4)
 
-- [Documentation](https://apps.fas.usda.gov/opendataweb/home)
-- [Postman Collection](collections/foreign-agricultural-service.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/foreign-agricultural-service.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [USDA FAS Open Data Services](https://apis.io/collections/foreign-agricultural-service/open-foreign-agricultural-service/)
+- [USDA FAS Open Data Services ESR API](https://apis.io/collections/foreign-agricultural-service/open-foreign-agricultural-service-esr-api/)
+- [USDA FAS Open Data Services ESR GATS API](https://apis.io/collections/foreign-agricultural-service/open-foreign-agricultural-service-gats-api/)
+- [USDA FAS Open Data Services ESR PSD API](https://apis.io/collections/foreign-agricultural-service/open-foreign-agricultural-service-psd-api/)
 
-- [LinkedIn](https://www.linkedin.com/company/usda-foreign-agricultural-service)
+#### Overlays (3)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Foreign Agricultural Service Esr Api Overlay](https://apis.io/overlays/foreign-agricultural-service/foreign-agricultural-service-esr-api-overlay/)
+- [Foreign Agricultural Service Gats Api Overlay](https://apis.io/overlays/foreign-agricultural-service/foreign-agricultural-service-gats-api-overlay/)
+- [Foreign Agricultural Service Psd Api Overlay](https://apis.io/overlays/foreign-agricultural-service/foreign-agricultural-service-psd-api-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Foreign Agricultural Service Authentication](https://apis.io/security/foreign-agricultural-service/foreign-agricultural-service-authentication/)
+- [Foreign Agricultural Service Domain Security](https://apis.io/security/foreign-agricultural-service/foreign-agricultural-service-domain-security/)
+- [Foreign Agricultural Service Vulnerability Disclosure](https://apis.io/security/foreign-agricultural-service/foreign-agricultural-service-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Foreign Agricultural Service Plans Pricing](https://apis.io/plans/foreign-agricultural-service/foreign-agricultural-service-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Foreign Agricultural Service Rate Limits](https://apis.io/rate-limits/foreign-agricultural-service/foreign-agricultural-service-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Foreign Agricultural Service Finops](https://apis.io/finops/foreign-agricultural-service/foreign-agricultural-service-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.fas.usda.gov/)
+- [API reference](https://apps.fas.usda.gov/opendata/swagger/ui/index)
+- [Pricing](https://apps.fas.usda.gov/opendataweb/home)
+- [Sign up](https://apps.fas.usda.gov/opendatawebv2/#/signup)
+- [Support](https://apps.fas.usda.gov/opendatawebv2/#/contact)
+- [Security](https://www.usda.gov/vulnerability-disclosure-policy)
+- [Privacy policy](https://www.usda.gov/privacy-policy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 40.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 41.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 44.6 |
+| Access clarity | 55.3 |
+
+**Agent readiness 26.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 26.5** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/foreign-agricultural-service/](https://apis.io/providers/foreign-agricultural-service/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Foreign Agricultural Service: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/foreign-agricultural-service/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
