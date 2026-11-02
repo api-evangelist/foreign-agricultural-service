@@ -1,0 +1,77 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Foreign Agricultural Service
+providerId: foreign-agricultural-service
+generated: '2026-09-10'
+method: searched
+source: https://apps.fas.usda.gov/opendataweb/home
+created: '2026-05-04'
+modified: '2026-09-10'
+tags:
+  - Agriculture
+  - Federal Government
+  - Open Data
+description: >-
+  Plans and pricing for the USDA FAS Open Data Services. There is exactly one tier and it is
+  free.
+supersedes: >-
+  REPLACES the 2026-05-04 bulk-sweep scaffold, which invented a Free / Professional /
+  Enterprise ladder with a 1,000-request monthly quota, a 100,000-request Professional tier,
+  "TBD" overage pricing, contractual SLAs and a dedicated account manager. None of that exists
+  and none of it ever did — FAS is a US federal agency publishing open data under a free API
+  key. The scaffold was written by the sweep, not harvested, and it described a commercial
+  product a government agency does not sell. Replaced with what the provider actually
+  publishes.
+plan_count: 1
+pricing_model: free
+currency: null
+billing_period: null
+plans:
+  - id: foreign-agricultural-service-open-data
+    name: Open Data (free, API key required)
+    type: free
+    price: '0.00'
+    currency: USD
+    billing_period: none
+    signup: https://apps.fas.usda.gov/opendatawebv2/#/signup
+    onboarding: self-serve
+    description: >-
+      The only tier. Access to all three datasets — ESR, GATS and PSD, 35 read-only
+      operations — at no cost, in exchange for a free API key sent as the API_KEY header. The
+      key is minted through the api.data.gov signup widget embedded in the FAS portal.
+    quota: null
+    overage: null
+    limits: []
+    limits_note: >-
+      No quota, rate limit or fair-use ceiling is published anywhere on the portal or in the
+      contract, and none was observed in response headers. See
+      rate-limits/foreign-agricultural-service-rate-limits.yml — limit_count is an honest 0,
+      not an unmeasured one.
+    elements:
+      - name: ESR — weekly US export sales
+      - name: GATS — US Census and UN ComTrade trade flows
+      - name: PSD — world production, supply and distribution forecasts
+      - name: Swagger 2.0 contract and Swagger UI reference
+      - name: JSON or XML by content negotiation
+paid_tiers: false
+paid_tiers_note: >-
+  There is no paid tier, no enterprise tier, no "contact sales" path and no commercial
+  relationship of any kind. FAS Open Data Services are a public good funded by
+  appropriation; the data is US Government work in the public domain.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - free
+  units: []
+  plans:
+  - name: Open Data (free, API key required)
+    access: free
+    model: free
+    model_how: derived
+    units: []
+    periods: []
